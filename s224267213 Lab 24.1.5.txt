@@ -1,0 +1,594 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2026.05.18 13:20:35 =~=~=~=~=~=~=~=~=~=~=~=
+
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#Switch>
+                     ^
+% Invalid input detected at '^' marker.
+
+Switch(config)#config t
+                     ^
+% Invalid input detected at '^' marker.
+
+Switch(config)#hostname D1
+D1(config)#no ip domain lookup
+D1(config)#ip routing
+D1(config)#ipv6 unicast-routing
+D1(config)#banner motd # D1, Implement SPAN Technologies #
+D1(config)#line con 0
+D1(config-line)# exec-timeout 0 0
+D1(config-line)# logging synchronous
+D1(config-line)# exit
+D1(config)#line vty 0 4
+D1(config-line)# privilege level 15
+D1(config-line)# exec-timeout 0 0
+D1(config-line)# password cisco123
+D1(config-line)# login
+D1(config-line)# exit
+D1(config)#vlan 2
+D1(config-vlan)# name SECOND_VLAN
+D1(config-vlan)# exit
+D1(config)#vlan 3
+D1(config-vlan)# name THIRD_VLAN
+D1(config-vlan)# exit
+D1(config)#interface vlan 1
+D1(config-if)# ip address 192.168.1.1 255.255.255.0
+D1(config-if)# ipv6 address fe80::d1:1 link-local
+D1(config-if)# ipv6 address 2001:db8:acad:1000::1/64
+D1(config-if)# no shutdown
+D1(config-if)# exit
+D1(config)#interface vlan 2
+D1(config-if)# ip address 192.168.2.1 255.255.255.0
+D1(config-if)# ipv6 address fe80::d1:2 link-local
+D1(config-if)# ipv6 address 2001:db8:acad:2000::1/64
+D1(config-if)# no shutdown
+D1(config-if)# exit
+D1(config)#interface vlan 3
+D1(config-if)# ip address 192.168.3.1 255.255.255.0
+D1(config-if)# ipv6 address fe80::d1:3 link-local
+D1(config-if)# ipv6 address 2001:db8:acad:3000::1/64
+D1(config-if)# no shutdown
+D1(config-if)# exit
+D1(config)#interface range g1/0/23
+D1(config-if-range)# spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast will be configured in 1 interfaces due to the range command 
+ but will only have effect when the interfaces are in a non-trunking mode.
+D1(config-if-range)# switchport mode access
+D1(config-if-range)# no shutdown
+D1(config-if-range)# exit
+D1(config)#interface range g1/0/24
+D1(config-if-range)# spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast will be configured in 1 interfaces due to the range command 
+ but will only have effect when the interfaces are in a non-trunking mode.
+D1(config-if-range)# switchport mode access
+D1(config-if-range)# switchport access vlan 2
+D1(config-if-range)# no shutdown
+D1(config-if-range)# exit
+D1(config)#interface range g1/0/5-6
+D1(config-if-range)# switchport mode trunk
+D1(config-if-range)# channel-group 1 mode active
+Creating a port-channel interface Port-channel 1
+
+D1(config-if-range)# no shutdown
+D1(config-if-range)# exit
+D1(config)#interface range g1/0/1-4, g1/0/7-22, g1/1/1-4
+D1(config-if-range)# shutdown
+D1(config-if-range)# exit
+D1(config)#ip dhcp pool SECOND_VLAN_POOL
+D1(dhcp-config)# network 192.168.2.0 255.255.255.0
+D1(dhcp-config)# default-router 192.168.2.1
+D1(dhcp-config)# exit
+D1(config)#ip dhcp pool THIRD_VLAN_POOL
+D1(dhcp-config)# network 192.168.3.0 255.255.255.0
+D1(dhcp-config)# default-router 192.168.3.1
+D1(dhcp-config)# exit
+D1(config)#end
+D1#
+*May 18 13:20:31.206: %SYS-5-CONFIG_I: Configured from console by console
+D1#
+*May 18 13:20:31.765: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to down
+*May 18 13:20:31.778: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to down
+*May 18 13:20:31.884: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/5, changed state to down
+*May 18 13:20:31.888: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/6, changed state to down
+*May 18 13:20:32.998: %LINK-5-CHANGED: Interface GigabitEthernet1/0/1, changed state to administratively down
+*May 18 13:20:33.001: %LINK-5-CHANGED: Interface GigabitEthernet1/0/2, changed state to administratively down
+*May 18 13:20:33.004: %LINK-5-CHANGED: Interface GigabitEthernet1/0/3, changed state to administratively down
+*May 18 13:20:33.007: %LINK-5-CHANGED: Interface GigabitEthernet1/0/4, changed state to administratively down
+*May 18 13:20:33.010: %LINK-5-CHANGED: Interface GigabitEthernet1/0/7, changed state to administratively down
+*May 18 13:20:33.014: %LINK-5-CHANGED: Interface GigabitEthernet1/0/8, changed state to administratively down
+*May 18 13:20:33.016: %LINK-5-CHANGED: Interface GigabitEthernet1/0/9, changed state to administratively down
+*May 18 13:20:33.020: %LINK-5-CHANGED: Interface GigabitEthernet1/0/10, changed state to administratively down
+*May 18 13:20:33.023: %LINK-5-CHANGED: Interface GigabitEthernet1/0/11, changed state to administratively down
+*May 18 13:20:33.026: %LINK-5-CHANGED: Interface GigabitEthernet1/0/12, changed state to administratively down
+*May 18 13:20:33.030: %LINK-5-CHANGED: Interface GigabitEthernet1/0/13, changed state to administratively down
+*May 18 13:20:33.033: %LINK-5-CHANGED: Interface GigabitEthernet1/0/14, changed state to administratively down
+*May 18 13:20:33.035: %LINK-5-CHANGED: Interface GigabitEthernet1/0/15, changed state to administratively down
+*May 18 13:20:33.038: %LINK-5-CHANGED: Interface GigabitEthernet1/0/16, changed state to administratively down
+*May 18 13:20:33.041: %LINK-5-CHANGED: Interface GigabitEthernet1/0/17, changed state to administratively down
+*May 18 13:20:33.052: %LINK-5-CHANGED: Interface GigabitEthernet1/0/18, changed state to administratively down
+*May 18 13:20:33.054: %LINK-5-CHANGED: Interface GigabitEthernet1/0/19, changed state to administratively down
+*May 18 13:20:33.057: %LINK-5-CHANGED: Interface GigabitEthernet1/0/20, changed state to administratively down
+D1#
+*May 18 13:20:33.059: %LINK-5-CHANGED: Interface GigabitEthernet1/0/21, changed state to administratively down
+*May 18 13:20:33.062: %LINK-5-CHANGED: Interface GigabitEthernet1/0/22, changed state to administratively down
+*May 18 13:20:33.064: %LINK-5-CHANGED: Interface GigabitEthernet1/1/1, changed state to administratively down
+*May 18 13:20:33.067: %LINK-5-CHANGED: Interface GigabitEthernet1/1/2, changed state to administratively down
+*May 18 13:20:33.070: %LINK-5-CHANGED: Interface GigabitEthernet1/1/3, changed state to administratively down
+*May 18 13:20:33.072: %LINK-5-CHANGED: Interface GigabitEthernet1/1/4, changed state to administratively down
+D1#
+*May 18 13:20:40.022: %HMANRP-6-EMP_NO_ELECTION_INFO: Could not elect active EMP switch, setting emp active switch to 0: EMP_RELAY: Could not elect switch with mgmt port UP
+D1#
+*May 18 13:20:41.908: %ETC-5-L3DONTBNDL2: Gi1/0/5 suspended: LACP currently not enabled on the remote port.
+*May 18 13:20:42.720: %ETC-5-L3DONTBNDL2: Gi1/0/6 suspended: LACP currently not enabled on the remote port.
+D1#
+*May 18 13:31:04.174: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/24, changed state to up
+*May 18 13:31:05.174: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/24, changed state to up
+D1#
+*May 18 13:31:05.177: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to up
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#conf t' 
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#clot ck timezone utc 0 0
+D1(config)#
+D1(config)#
+*May 18 13:34:30.196: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:34:30 UTC Mon May 18 2026 to 13:34:30 utc Mon May 18 2026, configured from console by console.
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>en
+Switch# co   conf 
+*May 18 13:33:46.877: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 18 13:33:46.878: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+*May 18 13:33:47.091: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 18 13:33:47.460: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 18 13:33:47.592: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 18 13:33:47.721: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 18 13:33:48.000: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C9200L-24T-4G,SN:FVH28520MH6] identified
+*May 18 13:33:48.853: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 18 13:33:48.955: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 3 seconds).
+*May 18 13:33:48.955: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#hostname A1
+A1(config)#no ip domain lookup
+A1(config)#ipv6 unicast-routing
+A1(config)#banner motd # A1, Implement SPAN Technologies #
+A1(config)#line con 0
+A1(config-line)# exec-timeout 0 0
+A1(config-line)# logging synchronous
+A1(config-line)# exit
+A1(config)#line vty 0 4
+A1(config-line)# privilege level 15
+A1(config-line)# exec-timeout 0 0
+A1(config-line)# password cisco123
+A1(config-line)# login
+A1(config-line)# exit
+A1(config)#vlan 2
+A1(config-vlan)# name SECOND_VLAN
+A1(config-vlan)# exit
+A1(config)#vlan 3
+A1(config-vlan)# name THIRD_VLAN
+A1(config-vlan)# exit
+A1(config)#interface vlan 1
+A1(config-if)# ip address 192.168.1.3 255.255.255.0
+A1(config-if)# ipv6 address fe80::a1:1 link-local
+A1(config-if)# ipv6 address 2001:db8:acad:1000::3/64
+A1(config-if)# no shutdown
+A1(config-if)# exit
+A1(config)#interface range f0/1-2
+                           ^
+% Invalid input detected at '^' marker.
+
+A1(config)# switchport mode trunk
+                  ^
+% Invalid input detected at '^' marker.
+
+A1(config)# channel-group 1 mode active
+             ^
+% Invalid input detected at '^' marker.
+
+A1(config)# no shutdown
+% Incomplete command.
+
+A1(config)# exit
+A1#interface range f0/23 - 24
+     ^
+% Invalid input detected at '^' marker.
+
+A1# switchport mode access
+          ^
+% Invalid input detected at '^' marker.
+
+A1# switchport access vlan 3
+          ^
+% Invalid input detected at '^' marker.
+
+A1# spanning-tree portfast
+      ^
+% Invalid input detected at '^' marker.
+
+A1# no shutdown
+       ^
+% Invalid input detected at '^' marker.
+
+A1# exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+*May 18 13:34:15.079: %SYS-5-CONFIG_I: Configured from console by console A1, Implement SPAN Technologies 
+A1>
+A1>
+A1>
+A1>
+A1>en
+A1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+A1(config)#interface range g1/0/1-2
+A1(config-if-range)# switchport mode trunk
+A1(config-if-range)# channel-group 1 mode active
+Creating a port-channel interface Port-channel 1
+
+A1(config-if-range)# no shutdown
+A1(config-if-range)# exit
+A1(config)#interface range g1/0/23 - 24
+A1(config-if-range)# switchport mode access
+A1(config-if-range)# switchport access vlan 3
+A1(config-if-range)# spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast will be configured in 2 interfaces due to the range command 
+ but will only have effect when the interfaces are in a non-trunking mode.
+A1(config-if-range)# no shutdown
+A1(config-if-range)# exit
+A1(config)#interface range g1/0/3-22, g1/0/1-2
+A1(config-if-range)# shutdown
+A1(config-if-range)# exit
+A1(config)#end
+*May 18 13:35:18.490: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to down
+*May 18 13:35:18.590: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/2, changed state to down
+*May 18 13:35:19.763: %LINK-5-CHANGED: Interface GigabitEthernet1/0/3, changed state to administratively down
+*May 18 13:35:19.770: %LINK-5-CHANGED: Interface GigabitEthernet1/0/4, changed state to administratively down
+*May 18 13:35:19.774: %LINK-5-CHANGED: Interface GigabitEthernet1/0/5, changed state to administratively down
+*May 18 13:35:19.782: %LINK-5-CHANGED: Interface GigabitEthernet1/0/6, changed state to administratively down
+*May 18 13:35:19.787: %LINK-5-CHANGED: Interface GigabitEthernet1/0/7, changed state to administratively down
+*May 18 13:35:19.791: %LINK-5-CHANGED: Interface GigabitEthernet1/0/8, changed state to administratively down
+*May 18 13:35:19.794: %LINK-5-CHANGED: Interface GigabitEthernet1/0/9, changed state to administratively down
+*May 18 13:35:19.799: %LINK-5-CHANGED: Interface GigabitEthernet1/0/10, changed state to administratively down
+*May 18 13:35:19.803: %LINK-5-CHANGED: Interface GigabitEthernet1/0/11, changed state to administratively down
+*May 18 13:35:19.806: %LINK-5-CHANGED: Interface GigabitEthernet1/0/12, changed state to administratively down
+*May 18 13:35:19.810: %LINK-5-CHANGED: Interface GigabitEthernet1/0/13, changed state to administratively down
+*May 18 13:35:19.815: %LINK-5-CHANGED: Interface GigabitEthernet1/0/14, changed state to administratively down
+*May 18 13:35:19.819: %LINK-5-CHANGED: Interface GigabitEthernet1/0/15, changed state to administratively down
+*May 18 13:35:19.822: %LINK-5-CHANGED: Interface GigabitEthernet1/0/16, changed state to administratively down
+*May 18 13:35:19.833: %LINK-5-CHANGED: Interface GigabitEthernet1/0/17, changed state to administratively down
+*May 18 13:35:19.838: %LINK-5-CHANGED: Interface GigabitEthernet1/0/18, changed state to administratively down
+*May 18 13:35:19.843: %LINK-5-CHANGED: Interface GigabitEthernet1/0/19, changed state to administratively down
+*May 18 13:35:19.847: %LINK-5-CHANGED: Interface GigabitEthernet1/0/20, changed state to administratively down
+A1(config)#end
+A1#
+*May 18 13:35:19.850: %LINK-5-CHANGED: Interface GigabitEthernet1/0/21, changed state to administratively down
+*May 18 13:35:19.855: %LINK-5-CHANGED: Interface GigabitEthernet1/0/22, changed state to administratively down
+*May 18 13:35:19.859: %LINK-5-CHANGED: Interface GigabitEthernet1/0/1, changed state to administratively down
+*May 18 13:35:19.866: %LINK-5-CHANGED: Interface GigabitEthernet1/0/2, changed state to administratively down
+*May 18 13:35:20.207: %SYS-5-CONFIG_I: Configured from console by console
+A1#
+*May 18 13:35:20.651: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#end
+D1#
+*May 18 13:43:07.655: %SYS-5-CONFIG_I: Configured from console by console
+D1#write mw emory
+Building configuration...
+[OK]
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#monitor session 1 source interface g1/0/24
+*May 18 13:43:38.625: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created succesfully
+D1(config)#monitor session 1 source interface g1/0/24
+*May 18 13:43:38.627: %PKI-4-NOCONFIGAUTOSAVE: Configuration was modified.  Issue "write memory" to save new IOS PKI configuration
+D1(config)#monitor session 1 source interface g1/0/24
+D1(config)#
+*May 18 13:43:39.785: %SMART_LIC-6-REPORTING_REQUIRED: A Usage report acknowledgement will be required in 90 days.
+D1(config)#monitor session 1 destination interface g1/0/23
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#show monitor session local                          end
+D1#
+D1#
+D1#
+D1#
+*May 18 13:44:03.318: %SYS-5-CONFIG_I: Configured from console by console
+D1#
+D1#
+D1#show monitor session local
+Session 1
+---------
+Type                     : Local Session
+Source Ports             : 
+    Both                 : Gi1/0/24
+Destination Ports        : Gi1/0/23
+    Encapsulation        : Native
+          Ingress        : Disabled
+
+
+D1#
+*May 18 13:44:17.822: %SMART_LIC-3-COMM_FAILED: Communications failure with the Cisco Smart License Utility (CSLU) : Unable to resolve server hostname/domain name 
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#no monitor session 1 
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#vlan 500
+D1(config-vlan)#
+D1(config-vlan)#
+D1(config-vlan)#
+D1(config-vlan)#
+D1(config-vlan)#
+D1(config-vlan)#
+D1(config-vlan)#
+D1(config-vlan)#name Remote_SPAN
+D1(config-vlan)#remote-span
+D1(config-vlan)#exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#end
+D1#
+D1#
+D1#
+D1#
+D1#
+*May 18 13:56:55.084: %SYS-5-CONFIG_I: Configured from console by console
+D1#show vlan remote-span
+
+Remote SPAN VLANs
+------------------------------------------------------------------------------
+500
+D1#
+D1#
+D1#show interface trunk
+D1#
+D1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#monitor session 2 source vlan 3 
+A1(config)#monitor session 2 destination remote vlan 500
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#show monitor session 2
+             ^
+% Invalid input detected at '^' marker.
+
+A1(config)#end
+A1#
+A1#
+A1#
+A1#
+A1#
+*May 18 13:57:32.517: %SYS-5-CONFIG_I: Configured from console by console
+A1#show monitor session 2
+Session 2
+---------
+Type                     : Remote Source Session
+Source VLANs             :
+    Both                 : 3
+Dest RSPAN VLAN          : 500
+
+
+A1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#end
+D1# 
+*May 18 13:59:38.122: %SYS-5-CONFIG_I: Configured from console by console
+D1# show monitor session 2
+ No SPAN configuration is present in the system for session [2]. 
+
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#monitor session 2 source remote vlan 500
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#monitor session 2 destination interface g1/0/23
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#end
+D1#
+D1#
+D1#
+D1#
+*May 18 14:00:41.681: %SYS-5-CONFIG_I: Configured from console by console
+D1#conf t show monitor session 2
+Session 2
+---------
+Type                     : Remote Destination Session
+Source RSPAN VLAN        : 500
+Destination Ports        : Gi1/0/23
+    Encapsulation        : Native
+          Ingress        : Disabled
+
+
+D1#wr  write memory y
+Building configuration...
+[OK]
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#w 
+A1#
+A1#
+A1#
+A1#
+A1#write memory
+Building configuration...
+[OK]
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#[OK]
+*May 18 14:00:27.348: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created succesfully
+*May 18 14:00:27.354: %PKI-6-CONFIGAUTOSAVE: Running configuration saved to NVRAM
+A1#
+*May 18 14:00:29.796: %SMART_LIC-6-REPORTING_REQUIRED: A Usage report acknowledgement will be required in 90 days.
+A1#

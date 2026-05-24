@@ -1,0 +1,1944 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2026.05.19 10:52:56 =~=~=~=~=~=~=~=~=~=~=~=
+
+Router>
+Router>
+Router>en
+% No password set
+Router>conf t
+          ^
+% Invalid input detected at '^' marker.
+
+Router>en
+% No password set
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+% No password set
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+Password: 
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router#conf t
+*May 19 08:56:52.847: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:52.988: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as console
+*May 19 08:56:52.989: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 19 08:56:53.147: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:53.422: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:53.462: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:53.573: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+*May 19 08:56:53.807: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C8200L-1N-4T,SN:FCZ2850R34C] identified
+*May 19 08:56:54.275: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:54.376: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 1 seconds).
+*May 19 08:56:54.376: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Router(config)#
+Router(config)#
+Router(config)#hostname R1
+R1(config)#ipv6 unicast-routing
+R1(config)#no ip domain lookup
+R1(config)#banner motd # R1, Implement IP SLA #
+R1(config)#line con 0
+R1(config-line)#exec-timeout 0 0
+R1(config-line)#logging synchronous
+R1(config-line)#exit
+R1(config)#line vty 0 4
+R1(config-line)#privilege level 15
+R1(config-line)#password cisco123
+R1(config-line)#exec-timeout 0 0
+R1(config-line)#logging synchronous
+R1(config-line)#login
+R1(config-line)#exit
+R1(config)#interface g0/0/0
+R1(config-if)#ip address 172.16.12.1 255.255.255.0
+R1(config-if)#ipv6 address fe80::1:1 link-local
+R1(config-if)#ipv6 address 2001:db8:acad:12::1/64
+R1(config-if)#no shutdown
+R1(config-if)#Lab - Implement IP SLA
+                ^
+% Invalid input detected at '^' marker.
+
+R1(config-if)#o
+R1## 2020 - 2021 Cisco and/or its affiliates. All rights reserved. Cisco Publ$21 Cisco and/or its affiliates. All rights reserved. Cisco Publi         c Page 4 nd/or its affiliates. All rights reserved. Cisco Public Page 4 o         f 37 www.affiliates. All rights reserved. Cisco Public Page 4 of 37 www.n         etacad.co. All rights reserved. Cisco Public Page 4 of 37 www.netacad.com         
+R1#exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+*May 19 08:57:03.230: %SYS-5-CONFIG_I: Configured from console by console R1, Implement IP SLA 
+R1>
+R1>
+R1>
+R1>
+R1>
+R1>en
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#hostname R1
+R1(config)#ipv6 unicast-routing
+R1(config)#no ip domain lookup
+R1(config)#banner motd # R1, Implement IP SLA #
+R1(config)#line con 0
+R1(config-line)#exec-timeout 0 0
+R1(config-line)#logging synchronous
+R1(config-line)#exit
+R1(config)#line vty 0 4
+R1(config-line)#privilege level 15
+R1(config-line)#password cisco123
+R1(config-line)#exec-timeout 0 0
+R1(config-line)#logging synchronous
+R1(config-line)#login
+R1(config-line)#exit
+R1(config)#interface g0/0/0
+R1(config-if)#ip address 172.16.12.1 255.255.255.0
+R1(config-if)#ipv6 address fe80::1:1 link-local
+R1(config-if)#ipv6 address 2001:db8:acad:12::1/64
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1(config)#interface g0/0/1
+R1(config-if)#ip address 172.16.1.1 255.255.255.0
+R1(config-if)#ipv6 address fe80::1:2 link-local
+R1(config-if)#ipv6 address 2001:db8:acad:1721::1/64
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1(config)#router ospf 4
+R1(config-router)#router-id 1.1.1.4
+R1(config-router)#network 172.16.0.0 0.0.255.255 area 0
+R1(config-router)#exit
+R1(config)#ipv6 router ospf 6
+R1(config-rtr)#router-id 1.1.1.6
+R1(config-rtr)#exit
+R1(config)#interface g0/0/0
+R1(config-if)#ipv6 ospf 6 area 0
+R1(config-if)#exit
+R1(config)#interface g0/0/1
+R1(config-if)#ipv6 ospf 6 area 0
+R1(config-if)#exit
+R1(config)#end
+R1#
+*May 19 08:58:33.450: %OSPF-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+*May 19 08:58:33.672: %OSPFv3-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+R1#
+R1#
+R1#
+*May 19 08:58:33.692: %SYS-5-CONFIG_I: Configured from console by console
+R1#
+R1#
+R1#
+R1#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#hostname R2
+R2(config)#ipv6 unicast-routing
+R2(config)#no ip domain lookup
+R2(config)#banner motd # R2, Implement IP SLA #
+R2(config)#line con 0
+R2(config-line)#exec-timeout 0 0
+R2(config-line)#logging synchronous
+R2(config-line)#exit
+R2(config)#line vty 0 4
+R2(config-line)#privilege level 15
+R2(config-line)#password cisco123
+R2(config-line)#exec-timeout 0 0
+R2(config-line)#logging synchronous
+R2(config-line)#login
+R2(config-line)#exit
+R2(config)#interface g0/0/1
+R2(config-if)#ip address 172.16.23.2 255.255.255.0
+R2(config-if)#ipv6 address fe80::2:1 link-local
+R2(config-if)#ipv6 address 2001:db8:acad:23::2/64
+R2(config-if)#no shutdown
+R2(config-if)#exit
+R2(config)#interface g0/0/0
+R2(config-if)#ip address 172.16.12.2 255.255.255.0
+R2(config-if)#
+R2(config-if)#
+R2(config-if)#
+R2(config-if)#
+R2(config-if)#
+R2(config-if)#ipv6 address fe80::2:2 link-local
+R2(config-if)#ipv6 address 2001:db8:acad:12::2/64
+R2(config-if)#no shutdown
+R2(config-if)#exit
+R2(config)#interface loopback 0
+R2(config-if)#ip address 192.168.1.1 255.255.255.0
+R2(config-if)#ipv6 address fe80::2:3 link-local
+R2(config-if)#ipv6 address 2001:db8:acad:1000::1/64
+R2(config-if)#ip ospf network point-to-point
+R2(config-if)#ipv6 ospf network point-to-point
+R2(config-if)#no shutdown
+R2(config-if)#exit
+R2(config)#router ospf 4
+R2(config-router)#router-id 2.2.2.4
+R2(config-router)#network 172.16.0.0 0.0.255.255 area 0
+R2(config-router)#network 192.168.1.0 0.0.0.255 area 0
+R2(config-router)#exit
+R2(config)#ipv6 router ospf 6
+R2(config-rtr)#router-id 2.2.2.6
+R2(config-rtr)#exit
+R2(config)#interface g0/0/0
+R2(config-if)#ipv6 ospf 6 area 0
+R2(config-if)#exit
+R2(config)#interface g0/0/1
+R2(config-if)#ipv6 ospf 6 area 0
+R2(config-if)#exit
+R2(config)#interface Loopback 0
+R2(config-if)#ipv6 ospf 6 area 0
+R2(config-if)#exit
+R2(config)#end
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: noi 
+
+
+
+Press RETURN to get started!
+
+
+*May 19 09:18:06.198: %SMART_LIC-6-AGENT_READY: Smart Agent for Licensing is initialized
+*May 19 09:18:08.363: %IOS_LICENSE_IMAGE_APPLICATION-6-LICENSE_LEVEL: Module name = esg Next reboot level = securityk9 and License = securityk9
+*May 19 09:18:08.421: %IOS_LICENSE_IMAGE_APPLICATION-6-LICENSE_LEVEL: Module name = esg Next reboot level = ipbasek9 and License = ipbasek9
+*May 19 09:18:09.959: %ISR_THROUGHPUT-6-LEVEL: Throughput level has been set to 50000 kbps
+
+Router>
+Router>*May 19 09:18:11.671: %IOSXE_RP_NV-3-NV_ACCESS_FAIL: Initial read of NVRAM contents failed
+*May 19 09:18:15.253: dev_pluggable_optics_selftest attribute table internally inconsistent @ 0x144
+
+*May 19 09:18:19.344: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*May 19 09:18:20.356: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*May 19 09:18:20.357: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*May 19 09:18:20.357: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*May 19 09:18:20.366: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*May 19 09:18:21.692: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*May 19 09:18:21.742: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+*May 19 09:18:21.743: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*May 19 09:18:21.743: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*May 19 09:18:21.743: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*May 19 09:18:21.744: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*May 19 09:18:23.211: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*May 19 09:18:23.212: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/1, interfaces disabled
+*May 19 09:18:23.217: %SPA_OIR-6-OFFLINECARD: SPA (ISR4321-2x1GE) offline in subslot 0/0
+*May 19 09:18:23.218: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2T) offline in subslot 0/1
+*May 19 09:18:23.222: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*May 19 09:18:23.222: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*May 19 09:18:23.245: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*May 19 09:18:23.245: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*May 19 09:18:23.378: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*May 19 09:18:23.382: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/1
+*May 19 09:18:23.460: %SPA-3-ENVMON_NOT_MONITORED: SIP0: iomd:  Environmental monitoring is not enabled for ISR4321-2x1GE[0/0]
+*May 19 09:18:28.832: %SPA_OIR-6-ONLINECARD: SPA (ISR4321-2x1GE) online in subslot 0/0
+*May 19 09:18:30.780: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to down
+*May 19 09:18:30.825: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/1, changed state to down
+*May 19 09:20:48.916: %SPA_OIR-6-ONLINECARD: SPA (NIM-2T) online in subslot 0/1
+*May 19 09:20:50.906: %LINK-3-UPDOWN: Interface Serial0/1/0, changed state to down
+*May 19 09:20:50.912: %LINK-3-UPDOWN: Interface Serial0/1/1, changed state to down
+*May 19 09:21:39.997: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/1, changed state to up
+*May 19 09:21:40.997: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1, changed state to up
+*May 19 09:37:08.059: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to up
+*May 19 09:37:09.060: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to up
+*May 19 09:37:55.286: %LINK-5-CHANGED: Interface GigabitEthernet0/0/0, changed state to administratively down
+*May 19 09:37:55.286: %LINK-5-CHANGED: Interface GigabitEthernet0/0/1, changed state to administratively down
+*May 19 09:37:55.286: %LINK-5-CHANGED: Interface Serial0/1/0, changed state to administratively down
+*May 19 09:37:55.286: %LINK-5-CHANGED: Interface Serial0/1/1, changed state to administratively down
+*May 19 09:37:55.289: %LINK-5-CHANGED: Interface GigabitEthernet0, changed state to administratively down
+*May 19 09:37:55.313: %LINK-5-CHANGED: Interface Vlan1, changed state to administratively down
+*May 19 09:37:56.286: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to down
+*May 19 09:37:56.287: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1, changed state to down
+*May 19 09:38:02.560: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, ISR Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 15.5(3)S4b, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Mon 17-Oct-16 20:23 by mcpre
+*May 19 09:38:02.732: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 19 09:38:02.732: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router#con t  
+*May 19 09:38:22.748: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 19 09:38:22.748: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFFf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#hostname R3
+R3(config)#ipv6 unicast-routing
+R3(config)#no ip domain lookup
+R3(config)#banner motd # R3, Implement IP SLA #
+R3(config)#line con 0
+R3(config-line)#exec-timeout 0 0
+R3(config-line)#logging synchronous
+R3(config-line)#exit
+R3(config)#line vty 0 4
+R3(config-line)#privilege level 15
+R3(config-line)#password cisco123
+R3(config-line)#exec-timeout 0 0
+R3(config-line)#logging synchronous
+R3(config-line)#login
+R3(config-line)#
+R3(config-line)#
+R3(config-line)#
+R3(config-line)#
+R3(config-line)#
+R3(config-line)#exit
+R3(config)#interface g0/0/0
+R3(config-if)#ip address 172.16.23.3 255.255.255.0
+R3(config-if)#ipv6 address fe80::3:1 link-local
+R3(config-if)#ipv6 address 2001:db8:acad:23::3/64
+R3(config-if)#no shutdown
+R3(config-if)#exit
+R3(config)#interface g0/0/1
+R3(config-if)#ip address 172.16.3.1 255.255.255.0
+R3(config-if)#ipv6 address fe80::3:2 link-local
+R3(config-if)#ipv6 address 2001:db8:acad:1723::1/64
+R3(config-if)#no shutdown
+R3(config-if)#exit
+R3(config)#router ospf 4
+R3(config-router)#router-id 3.3.3.4
+R3(config-router)#network 172.16.0.0 0.0.255.255 area 0
+R3(config-router)#exit
+R3(config)#ipv6 router ospf 6
+R3(config-rtr)#router-id 3.3.3.6
+R3(config-rtr)#exit
+R3(config)#interface g0/0/0
+R3(config-if)#ipv6 ospf 6 area 0
+R3(config-if)#exit
+R3(config)#interface g0/0/1
+R3(config-if)#ipv6 ospf 6 area 0
+R3(config-if)#exit
+R3(config)#end
+R3#
+R3#
+R3#
+R3#
+*May 19 09:38:47.917: %SYS-5-CONFIG_I: Configured from console by console
+R3#
+R3#
+R3#
+*May 19 09:38:49.553: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to down
+*May 19 09:38:49.701: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/1, changed state to down
+R3#
+*May 19 09:38:54.544: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/1, changed state to up
+*May 19 09:38:55.540: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to up
+*May 19 09:38:55.545: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1, changed state to up
+R3#
+*May 19 09:38:56.540: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to up
+R3#
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>en
+Switch#con ft    nf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+*May 19 08:53:28.327: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:53:28.328: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 19 08:53:28.446: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:53:29.053: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:53:29.360: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:53:29.485: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:53:29.711: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C9300L-24T-4G,SN:FVH2851L4JS] identified
+*May 19 08:53:32.192: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:53:32.297: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 4 seconds).
+*May 19 08:53:32.297: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#hostname D1
+D1(config)#ip routing
+D1(config)#ipv6 unicast-routing
+D1(config)#no ip domain lookup
+D1(config)#banner motd # D1, Implement IP SLA #
+D1(config)#line con 0
+D1(config-line)#exec-timeout 0 0
+D1(config-line)#logging synchronous
+D1(config-line)#exit
+D1(config)#line vty 0 4
+D1(config-line)#privilege level 15
+D1(config-line)#password cisco123
+D1(config-line)#exec-timeout 0 0
+D1(config-line)#logging synchronous
+D1(config-line)#login
+D1(config-line)#exit
+D1(config)#interface range g1/0/1-24, g1/1/1-4, g0/0
+*May 19 08:54:13.309: %HMANRP-6-EMP_NO_ELECTION_INFO: Could not elect active EMP switch, setting emp active switch to 0: EMP_RELAY: Could not elect switch with mgmt port UP
+D1(config)#interface range g1/0/1-24, g1/1/1-4, g0/0
+D1(config-if-range)#shutdown
+D1(config-if-range)#exit
+D1(config)#interface range g1/0/1-6
+D1(config-if-range)#switchport mode trunk
+D1(config-if-range)#no shutdown
+D1(config-if-range)#exit
+D1(config)#interface range g1/0/1-4
+D1(config-if-range)#channel-group 12 mode active
+Creating a port-channel interface Port-channel 12
+
+D1(config-if-range)#exit
+D1(config)#interface range g1/0/5-6
+D1(config-if-range)#channel-group 1 mode active
+Creating a port-channel interface Port-channel 1
+
+D1(config-if-range)#exit
+D1(config)#interface g1/0/11
+D1(config-if)#no switchport
+D1(config-if)#ip address 172.16.1.2 255.255.255.0
+D1(config-if)#ipv6 address fe80::d1:1 link-local
+D1(config-if)#ipv6 address 2001:db8:acad:1721::2/64
+D1(config-if)#no shutdown
+D1(config-if)#exit
+D1(config)#vlan 2
+D1(config-vlan)#name SECOND_VLAN
+D1(config-vlan)#exit
+D1(config)#vlan 3
+D1(config-vlan)#name THIRD_VLAN
+D1(config-vlan)#exit
+D1(config)#spanning-tree vlan 2 root primary
+D1(config)#spanning-tree vlan 3 root secondary
+D1(config)#interface vlan 2
+D1(config-if)#ip address 10.0.2.1 255.255.255.0
+D1(config-if)#ipv6 address fe80::d1:2 link-local
+D1(config-if)#ipv6 address 2001:db8:acad:2::1/64
+D1(config-if)#no shutdown
+D1(config-if)#exit
+D1(config)#interface vlan 3
+D1(config-if)#ip address 10.0.3.1 255.255.255.0
+D1(config-if)#ipv6 address fe80::d1:3 link-local
+D1(config-if)#ipv6 address 2001:db8:acad:3::1/64
+D1(config-if)#no shutdown
+D1(config-if)#exit
+D1(config)#interface vlan 2
+D1(config-if)#standby version 2
+D1(config-if)#standby 2 ip 10.0.2.254
+D1(config-if)#standby 2 priority 150
+D1(config-if)#standby 2 preempt
+D1(config-if)#standby 26 ipv6 autoconfig
+*May 19 08:54:46.990: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/11, changed state to down
+D1(config-if)#standby 26 ipv6 autoconfig
+*May 19 08:54:48.713: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/1, changed state to down
+*May 19 08:54:48.721: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/2, changed state to down
+*May 19 08:54:48.726: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/3, changed state to down
+*May 19 08:54:48.733: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/4, changed state to down
+*May 19 08:54:48.740: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/5, changed state to down
+*May 19 08:54:48.748: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/6, changed state to down
+*May 19 08:54:48.753: %LINK-5-CHANGED: Interface GigabitEthernet1/0/7, changed state to administratively down
+*May 19 08:54:48.758: %LINK-5-CHANGED: Interface GigabitEthernet1/0/8, changed state to administratively down
+*May 19 08:54:48.761: %LINK-5-CHANGED: Interface GigabitEthernet1/0/9, changed state to administratively down
+*May 19 08:54:48.763: %LINK-5-CHANGED: Interface GigabitEthernet1/0/10, changed state to administratively down
+*May 19 08:54:48.774: %LINK-5-CHANGED: Interface GigabitEthernet1/0/12, changed state to administratively down
+*May 19 08:54:48.777: %LINK-5-CHANGED: Interface GigabitEthernet1/0/13, changed state to administratively down
+*May 19 08:54:48.779: %LINK-5-CHANGED: Interface GigabitEthernet1/0/14, changed state to administratively down
+*May 19 08:54:48.783: %LINK-5-CHANGED: Interface GigabitEthernet1/0/15, changed state to administratively down
+*May 19 08:54:48.798: %LINK-5-CHANGED: Interface GigabitEthernet1/0/16, changed state to administratively down
+*May 19 08:54:48.803: %LINK-5-CHANGED: Interface GigabitEthernet1/0/17, changed state to administratively down
+*May 19 08:54:48.806: %LINK-5-CHANGED: Interface GigabitEthernet1/0/18, changed state to administratively down
+*May 19 08:54:48.808: %LINK-5-CHANGED: Interface GigabitEthernet1/0/19, changed state to administratively down
+*May 19 08:54:48.811: %LINK-5-CHANGED: Interface GigabitEthernet1/0/20, changed state to administratively down
+*May 19 08:54:48.815: %LINK-5-CHANGED: Interface GigabitEthernet1/0/21, changed state to administratively down
+*May 19 08:54:48.817: %LINK-5-CHANGED: Interface GigabitEthernet1/0/22, changed state to administratively down
+*May 19 08:54:48.821: %LINK-5-CHANGED: Interface GigabitEthernet1/0/23, changed state to administratively down
+*May 19 08:54:48.824: %LINK-5-CHANGED: Interface GigabitEthernet1/0/24, changed state to administratively down
+*May 19 08:54:48.827: %LINK-5-CHANGED: Interface GigabitEthernet1/1/1, changed state to administratively down
+*May 19 08:54:48.843: %LINK-5-CHANGED: Interface GigabitEthernet1/1/2, changed state to administratively down
+D1(config-if)#standby 26 ipv6 autoconfig
+*May 19 08:54:48.848: %LINK-5-CHANGED: Interface GigabitEthernet1/1/3, changed state to administratively down
+*May 19 08:54:48.851: %LINK-5-CHANGED: Interface GigabitEthernet1/1/4, changed state to administratively down
+*May 19 08:54:48.867: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to down
+*May 19 08:54:48.881: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to administratively down
+*May 19 08:54:48.890: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to down
+*May 19 08:54:49.713: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to down
+*May 19 08:54:49.721: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/2, changed state to down
+*May 19 08:54:49.727: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/3, changed state to down
+*May 19 08:54:49.733: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/4, changed state to down
+*May 19 08:54:49.741: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/5, changed state to down
+*May 19 08:54:49.748: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/6, changed state to down
+*May 19 08:54:49.791: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+D1(config-if)#standby 26 ipv6 autoconfig
+*May 19 08:54:49.808: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/11, changed state to down
+D1(config-if)#standby 26 ipv6 autoconfig
+*May 19 08:54:51.702: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/3, changed state to up
+*May 19 08:54:51.852: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/6, changed state to up
+*May 19 08:54:52.002: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/4, changed state to up
+*May 19 08:54:52.153: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/2, changed state to up
+*May 19 08:54:52.323: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/1, changed state to up
+*May 19 08:54:52.473: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/5, changed state to up
+D1(config-if)#standby 26 ipv6 autoconfig
+*May 19 08:54:53.043: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/11, changed state to up
+*May 19 08:54:54.043: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/11, changed state to up
+D1(config-if)#standby 26 ipv6 autoconfig
+D1(config-if)#standby 26 priority 150
+D1(config-if)#standby 26 preempt
+D1(config-if)#exit
+D1(config)#interface vlan 3
+D1(config-if)#standby version 2
+D1(config-if)#standby 3 ip 10.0.3.254
+D1(config-if)#standby 3 preempt
+D1(config-if)#standby 36 ipv6 autoconfig
+D1(config-if)#standby 36 preempt
+D1(config-if)#exit
+D1(config)#router ospf 4
+D1(config-router)#router-id 0.13.1.4
+D1(config-router)#network 172.16.1.0 0.0.0.255 area 0
+D1(config-router)#network 10.0.0.0 0.0.255.255 area 0
+D1(config-router)#passive-interface vlan 2
+D1(config-router)#passive-interface vlan 3
+D1(config-router)#exit
+D1(config)#ipv6 router ospf 6
+D1(config-rtr)#router-id 0.13.1.6
+D1(config-rtr)#passive-interface vlan 2
+D1(config-rtr)#passive-interface vlan 3
+D1(config-rtr)#exit
+D1(config)#interface g1/0/11
+D1(config-if)#ipv6 ospf 6 area 0
+D1(config-if)#exit
+D1(config)#interface vlan 2
+D1(config-if)#ipv6 ospf 6 area 0
+D1(config-if)#exit
+D1(config)#interface vlan 3
+D1(config-if)#ipv6 ospf 6 area 0
+D1(config-if)#exit
+D1(config)#ip dhcp excluded-address 10.0.2.1 10.0.2.5
+D1(config)#ip dhcp excluded-address 10.0.2.128 10.0.2.254
+D1(config)#ip dhcp pool SECOND_VLAN_DHCP_POOL
+D1(dhcp-config)#network 10.0.2.0 255.255.255.0
+D1(dhcp-config)#default-router 10.0.2.254
+D1(dhcp-config)#exit
+D1(config)#ip dhcp excluded-address 10.0.3.1 10.0.3.128
+D1(config)#ip dhcp excluded-address 10.0.3.254
+D1(config)#ip dhcp pool THIRD_VLAN_DHCP_POOL
+D1(dhcp-config)#network 10.0.3.0 255.255.255.0
+D1(dhcp-config)#default-router 10.0.3.254
+D1(dhcp-config)#exit
+D1(config)#end
+D1#
+*May 19 08:54:59.400: %OSPF-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+*May 19 08:54:59.568: %OSPFv3-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+D1#
+*May 19 08:55:00.159: %SYS-5-CONFIG_I: Configured from console by console
+*May 19 08:55:00.707: %ETC-5-L3DONTBNDL2: Gi1/0/3 suspended: LACP currently not enabled on the remote port.
+*May 19 08:55:01.403: %ETC-5-L3DONTBNDL2: Gi1/0/5 suspended: LACP currently not enabled on the remote port.
+*May 19 08:55:01.454: %ETC-5-L3DONTBNDL2: Gi1/0/4 suspended: LACP currently not enabled on the remote port.
+*May 19 08:55:01.473: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/6, changed state to up
+D1#
+*May 19 08:55:01.774: %ETC-5-L3DONTBNDL2: Gi1/0/1 suspended: LACP currently not enabled on the remote port.
+*May 19 08:55:01.974: %ETC-5-L3DONTBNDL2: Gi1/0/2 suspended: LACP currently not enabled on the remote port.
+D1#
+*May 19 08:55:02.457: %LINK-5-UPDOWN: Interface Port-channel1, changed state to up
+*May 19 08:55:03.456: %LINEPROTO-5-UPDOWN: Line protocol on Interface Port-channel1, changed state to up
+D1#
+*May 19 08:55:03.491: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#cllo   lock timezne  one utc 0 0
+         ^
+% Invalid input detected at '^' marker.
+
+D1#clock timezone utc 0 0
+*May 19 08:55:33.462: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to up
+*May 19 08:55:33.466: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to up
+D1#clock timezone utc 0 0
+*May 19 08:55:41.308: %OSPF-5-ADJCHG: Process 4, Nbr 1.1.1.4 on GigabitEthernet1/0/11 from LOADING to FULL, Loading Done
+D1#clock timezone utc 0 0
+*May 19 08:55:42.508: %OSPFv3-5-ADJCHG: Process 6, Nbr 1.1.1.6 on GigabitEthernet1/0/11 from LOADING to FULL, Loading Done
+D1#clock timezone utc 0 0
+         ^
+% Invalid input detected at '^' marker.
+
+D1#clock timezone utc 0 0
+*May 19 08:55:54.903: %HSRP-5-STATECHANGE: Vlan3 Grp 36 state Standby -> Active
+*May 19 08:55:55.707: %HSRP-5-STATECHANGE: Vlan2 Grp 2 state Standby -> Active
+D1#clock timezone utc 0 0
+*May 19 08:55:55.916: %HSRP-5-STATECHANGE: Vlan2 Grp 26 state Standby -> Active
+*May 19 08:55:56.914: %HSRP-5-STATECHANGE: Vlan3 Grp 3 state Standby -> Active
+D1#clock timezone utc 0 0onf t                lock timezone utc 0 0                      conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#clock timezone utc 0 0
+D1(config)#
+*May 19 08:56:18.958: %SYS-6-CLOCKUPDATE: System clock has been updated from 08:56:18 UTC Tue May 19 2026 to 08:56:18 utc Tue May 19 2026, configured from console by console.
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>en
+Switch#con nf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+*May 19 08:56:37.385: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:37.385: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 19 08:56:37.517: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:38.120: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:38.361: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:38.471: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:38.581: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C9300L-24T-4G,SN:FVH2851L4F9] identified
+*May 19 08:56:42.194: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 19 08:56:42.296: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 5 seconds).
+*May 19 08:56:42.296: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#hostname D2
+D2(config)#ip routing
+D2(config)#ipv6 unicast-routing
+D2(config)#no ip domain lookup
+D2(config)#banner motd # D2, Implement IP SLA #
+D2(config)#line con 0
+D2(config-line)#exec-timeout 0 0
+D2(config-line)#logging synchronous
+D2(config-line)#exit
+D2(config)#line vty 0 4
+D2(config-line)#privilege level 15
+D2(config-line)#password cisco123
+D2(config-line)#exec-timeout 0 0
+D2(config-line)#logging synchronous
+D2(config-line)#login
+D2(config-line)#exit
+D2(config)#interface range g1/0/1-24, g1/1/1-4, g0/0
+D2(config-if-range)#shutdown
+D2(config-if-range)#exit
+D2(config)#interface range g1/0/1-6
+D2(config-if-range)#switchport mode trunk
+D2(config-if-range)#no shutdown
+D2(config-if-range)#exit
+D2(config)#interface range g1/0/1-4
+D2(config-if-range)#channel-group 12 mode active
+Creating a port-channel interface Port-channel 12
+
+D2(config-if-range)#exit
+D2(config)#interface range g1/0/5-6
+D2(config-if-range)#channel-group 2 mode active
+Creating a port-channel interface Port-channel 2
+
+D2(config-if-range)#exit
+D2(config)#interface g1/0/11
+D2(config-if)#no switchport
+D2(config-if)#ip address 172.16.3.2 255.255.255.0
+D2(config-if)#ipv6 address fe80::d2:1 link-local
+D2(config-if)#ipv6 address 2001:db8:acad:1723::2/64
+D2(config-if)#no shutdown
+D2(config-if)#exit
+D2(config)#vlan 2
+D2(config-vlan)#name SECOND_VLAN
+D2(config-vlan)#exit
+D2(config)#vlan 3
+D2(config-vlan)#name THIRD_VLAN
+D2(config-vlan)#exit
+D2(config)#spanning-tree vlan 2 root secondary
+D2(config)#spanning-tree vlan 3 root primary
+D2(config)#interface vlan 2
+*May 19 08:56:49.947: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/11, changed state to down
+*May 19 08:56:51.393: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to administratively down
+*May 19 08:56:51.678: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/1, changed state to down
+*May 19 08:56:51.684: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/2, changed state to down
+*May 19 08:56:51.692: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/3, changed state to down
+*May 19 08:56:51.698: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/4, changed state to down
+*May 19 08:56:51.708: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/5, changed state to down
+*May 19 08:56:51.718: %LINK-5-CHANGED: Interface GigabitEthernet1/0/7, changed state to administratively down
+*May 19 08:56:51.720: %LINK-5-CHANGED: Interface GigabitEthernet1/0/8, changed state to administratively down
+*May 19 08:56:51.723: %LINK-5-CHANGED: Interface GigabitEthernet1/0/9, changed state to administratively down
+*May 19 08:56:51.727: %LINK-5-CHANGED: Interface GigabitEthernet1/0/10, changed state to administratively down
+*May 19 08:56:51.737: %LINK-5-CHANGED: Interface GigabitEthernet1/0/12, changed state to administratively down
+*May 19 08:56:51.741: %LINK-5-CHANGED: Interface GigabitEthernet1/0/13, changed state to administratively down
+*May 19 08:56:51.743: %LINK-5-CHANGED: Interface GigabitEthernet1/0/14, changed state to administratively down
+*May 19 08:56:51.747: %LINK-5-CHANGED: Interface GigabitEthernet1/0/15, changed state to administratively down
+*May 19 08:56:51.751: %LINK-5-CHANGED: Interface GigabitEthernet1/0/16, changed state to administratively down
+*May 19 08:56:51.756: %LINK-5-CHANGED: Interface GigabitEthernet1/0/17, changed state to administratively down
+*May 19 08:56:51.760: %LINK-5-CHANGED: Interface GigabitEthernet1/0/18, changed state to administratively down
+*May 19 08:56:51.761: %LINK-5-CHANGED: Interface GigabitEthernet1/0/19, changed state to administratively down
+*May 19 08:56:51.765: %LINK-5-CHANGED: Interface GigabitEthernet1/0/20, changed state to administratively down
+*May 19 08:56:51.769: %LINK-5-CHANGED: Interface GigabitEthernet1/0/21, changed state to administratively down
+*May 19 08:56:51.772: %LINK-5-CHANGED: Interface GigabitEthernet1/0/22, changed state to administratively down
+*May 19 08:56:51.775: %LINK-5-CHANGED: Interface GigabitEthernet1/0/23, changed state to administratively down
+*May 19 08:56:51.778: %LINK-5-CHANGED: Interface GigabitEthernet1/0/24, changed state to administratively down
+*May 19 08:56:51.781: %LINK-5-CHANGED: Interface GigabitEthernet1/1/1, changed state to administratively down
+*May 19 08:56:51.785: %LINK-5-CHANGED: Interface GigabitEthernet1/1/2, changed state to administratively down
+D2(config)#interface vlan 2
+*May 19 08:56:51.787: %LINK-5-CHANGED: Interface GigabitEthernet1/1/3, changed state to administratively down
+*May 19 08:56:51.791: %LINK-5-CHANGED: Interface GigabitEthernet1/1/4, changed state to administratively down
+*May 19 08:56:52.678: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to down
+*May 19 08:56:52.685: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/2, changed state to down
+*May 19 08:56:52.692: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/3, changed state to down
+*May 19 08:56:52.698: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/4, changed state to down
+D2(config)#interface vlan 2
+*May 19 08:56:52.708: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/5, changed state to down
+*May 19 08:56:52.780: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/11, changed state to down
+D2(config)#interface vlan 2
+*May 19 08:56:54.958: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/1, changed state to up
+*May 19 08:56:55.108: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/4, changed state to up
+*May 19 08:56:55.260: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/2, changed state to up
+*May 19 08:56:55.424: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/3, changed state to up
+*May 19 08:56:55.575: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/5, changed state to up
+*May 19 08:56:55.924: %LINK-5-UPDOWN: Interface GigabitEthernet1/0/11, changed state to up
+D2(config)#interface vlan 2
+*May 19 08:56:56.924: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/11, changed state to up
+D2(config)#interface vlan 2
+*May 19 08:56:59.001: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to up
+*May 19 08:56:59.198: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/2, changed state to up
+*May 19 08:56:59.401: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/3, changed state to up
+*May 19 08:56:59.850: %HMANRP-6-EMP_NO_ELECTION_INFO: Could not elect active EMP switch, setting emp active switch to 0: EMP_RELAY: Could not elect switch with mgmt port UP
+D2(config)#interface vlan 2
+D2(config-if)#
+*May 19 08:56:59.984: %LINK-5-UPDOWN: Interface Port-channel12, changed state to up
+*May 19 08:57:00.083: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/4, changed state to up
+*May 19 08:57:00.984: %LINEPROTO-5-UPDOWN: Line protocol on Interface Port-channel12, changed state to up
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+*May 19 08:57:04.097: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to up
+D2(config-if)#
+D2(config-if)#
+*May 19 08:57:04.864: %ETC-5-L3DONTBNDL2: Gi1/0/5 suspended: LACP currently not enabled on the remote port.
+D2(config-if)#
+D2(config-if)#ip address 10.0.2.2 255.255.255.0
+D2(config-if)#ipv6 address fe80::d2:2 link-local
+D2(config-if)#ipv6 address 2001:db8:acad:2::2/64
+D2(config-if)#no shutdown
+D2(config-if)#exit
+D2(config)#interface vlan 3
+D2(config-if)#ip address 10.0.3.2 255.255.255.0
+D2(config-if)#ipv6 address fe80::d2:3 link-local
+D2(config-if)#ipv6 address 2001:db8:acad:3::2/64
+D2(config-if)#no shutdown
+D2(config-if)#exit
+D2(config)#interface vlan 2
+D2(config-if)#standby version 2
+D2(config-if)#standby 2 ip 10.0.2.254
+D2(config-if)#standby 2 preempt
+D2(config-if)#standby 26 ipv6 autoconfig
+D2(config-if)#standby 26 preempt
+D2(config-if)#exit
+D2(config)#interface vlan 3
+D2(config-if)#standby version 2
+D2(config-if)#standby 3 ip 10.0.3.254
+D2(config-if)#standby 3 priority 150
+D2(config-if)#standby 3 preempt
+D2(config-if)#standby 36 ipv6 autoconfig
+D2(config-if)#standby 36 priority 150
+D2(config-if)#standby 36 preempt
+D2(config-if)#exit
+D2(config)#router ospf 4
+D2(config-router)#router-id 0.13.2.4
+D2(config-router)#network 172.16.3.0 0.0.0.255 area 0
+D2(config-router)#network 10.0.0.0 0.0.255.255 area 0
+D2(config-router)#passive-interface vlan 2
+D2(config-router)#passive-interface vlan 3
+D2(config-router)#exit
+D2(config)#ipv6 router ospf 6
+D2(config-rtr)#router-id 0.13.2.6
+D2(config-rtr)#passive-interface vlan 2
+D2(config-rtr)#passive-interface vlan 3
+D2(config-rtr)#exit
+D2(config)#interface g1/0/11
+D2(config-if)#ipv6 ospf 6 area 0
+D2(config-if)#exit
+D2(config)#interface vlan 2
+D2(config-if)#ipv6 ospf 6 area 0
+D2(config-if)#exit
+*May 19 08:57:09.684: %OSPF-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+*May 19 08:57:09.860: %OSPFv3-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+D2(config-if)#exit
+*May 19 08:57:11.870: %HSRP-5-STATECHANGE: Vlan3 Grp 3 state Listen -> Active
+D2(config-if)#exit
+*May 19 08:57:12.228: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to up
+D2(config-if)#exit
+*May 19 08:57:12.850: %HSRP-5-STATECHANGE: Vlan3 Grp 36 state Listen -> Active
+D2(config-if)#exit
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#interface vlan 3
+D2(config-if)#ipv6 ospf 6 area 0
+D2(config-if)#exit
+D2(config)#ip dhcp excluded-address 10.0.2.1 10.0.2.128
+D2(config)#ip dhcp excluded-address 10.0.2.254
+D2(config)#ip dhcp pool SECOND_VLAN_DHCP_POOL
+D2(dhcp-config)#network 10.0.2.0 255.255.255.0
+D2(dhcp-config)#default-router 10.0.2.254
+D2(dhcp-config)#exit
+D2(config)#ip dhcp excluded-address 10.0.3.1 10.0.3.5
+D2(config)#ip dhcp excluded-address 10.0.3.128 10.0.3.254
+D2(config)#ip dhcp pool THIRD_VLAN_DHCP_POOL
+D2(dhcp-config)#network 10.0.3.0 255.255.255.0
+D2(dhcp-config)#default-router 10.0.3.254
+D2(dhcp-config)#exit
+D2(config)#end
+D2#
+*May 19 08:57:20.984: %SYS-5-CONFIG_I: Configured from console by console
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: 
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: 
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: 
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: 
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: m no
+
+Would you like to terminate autoinstall? [yes]: 
+
+
+
+Press RETURN to get started!
+
+
+*May 19 09:54:24.561: %SSH-5-ENABLED: SSH 1.99 has been enabled
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+*May 19 09:54:36.983: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#hostname A1
+A1(config)#no ip domain lookup
+A1(config)#banner motd # A1, Implement IP SLA #
+A1(config)#line con 0
+A1(config-line)#exec-timeout 0 0
+A1(config-line)#logging synchronous
+A1(config-line)#exit
+A1(config)#line vty 0 4
+A1(config-line)#privilege level 15
+A1(config-line)#password cisco123
+A1(config-line)#exec-timeout 0 0
+A1(config-line)#logging synchronous
+A1(config-line)#login
+A1(config-line)#exit
+A1(config)#interface range f0/1-24, g0/1-2
+                           ^
+% Invalid input detected at '^' marker.
+
+A1(config)#shutdown
+% Incomplete command.
+
+A1(config)#exit
+A1#interface range f0/1-4
+     ^
+% Invalid input detected at '^' marker.
+
+A1#switchport mode trunk
+         ^
+% Invalid input detected at '^' marker.
+
+A1#no shutdown
+      ^
+% Invalid input detected at '^' marker.
+
+A1#exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+*May 19 09:54:52.303: %AN-6-AN_ABORTED_BY_CONSOLE_INPUT: Autonomic disabled due to User intervention on console. configure 'autonomic' to enable it. A1, Implement IP SLA 
+A1>
+A1>
+A1>
+A1>
+A1>
+A1>
+A1>en
+A1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#hostname A1
+A1(config)#no ip domain lookup
+A1(config)#banner motd # A1, Implement IP SLA #
+A1(config)#line con 0
+A1(config-line)#exec-timeout 0 0
+A1(config-line)#logging synchronous
+A1(config-line)#exit
+A1(config)#line vty 0 4
+A1(config-line)#privilege level 15
+A1(config-line)#password cisco123
+A1(config-line)#exec-timeout 0 0
+A1(config-line)#logging synchronous
+A1(config-line)#login
+A1(config-line)#exit
+A1(config)#interface range g1/0/1-24, g1/0/1-2
+A1(config-if-range)#shutdown
+A1(config-if-range)#exit
+A1(config)#interface range g1/0/1-4
+A1(config-if-range)#switchport mode trunk
+A1(config-if-range)#no shutdown
+A1(config-if-range)#exit
+A1(config)#interface range g1/0/1-2
+A1(config-if-range)#channel-group 1 mode active
+A1(config-if-range)#exit
+A1(config)#interface range g1/0/3-4
+A1(config-if-range)#channel-group 2 mode active
+Creating a port-channel interface Port-channel 2
+
+A1(config-if-range)#exit
+A1(config)#vlan 2
+*May 19 09:55:36.277: %LINEPROTO-5-UPDOWN: Line protocol on Interface Port-channel1, changed state to down
+*May 19 09:55:37.251: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/1, changed state to down
+*May 19 09:55:37.273: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/2, changed state to down
+*May 19 09:55:37.283: %LINK-3-UPDOWN: Interface Port-channel1, changed state to down
+*May 19 09:55:37.290: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/3, changed state to down
+*May 19 09:55:37.303: %LINK-5-CHANGED: Interface GigabitEthernet1/0/5, changed state to administratively down
+*May 19 09:55:37.306: %LINK-5-CHANGED: Interface GigabitEthernet1/0/6, changed state to administratively down
+*May 19 09:55:37.313: %LINK-5-CHANGED: Interface GigabitEthernet1/0/7, changed state to administratively down
+*May 19 09:55:37.316: %LINK-5-CHANGED: Interface GigabitEthernet1/0/8, changed state to administratively down
+*May 19 09:55:37.320: %LINK-5-CHANGED: Interface GigabitEthernet1/0/9, changed state to administratively down
+*May 19 09:55:37.323: %LINK-5-CHANGED: Interface GigabitEthernet1/0/10, changed state to administratively down
+*May 19 09:55:37.354: %LINK-5-CHANGED: Interface GigabitEthernet1/0/11, changed state to administratively down
+*May 19 09:55:37.358: %LINK-5-CHANGED: Interface GigabitEthernet1/0/12, changed state to administratively down
+*May 19 09:55:37.362: %LINK-5-CHANGED: Interface GigabitEthernet1/0/13, changed state to administratively down
+*May 19 09:55:37.366: %LINK-5-CHANGED: Interface GigabitEthernet1/0/14, changed state to administratively down
+*May 19 09:55:37.395: %LINK-3-UPDOWN: Interface Vlan1, changed state to down
+A1(config)#vlan 2
+*May 19 09:55:38.251: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to down
+*May 19 09:55:38.273: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/2, changed state to down
+*May 19 09:55:38.290: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/3, changed state to down
+*May 19 09:55:38.395: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/23, changed state to down
+*May 19 09:55:38.396: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+A1(config)#vlan 2
+*May 19 09:55:41.604: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/1, changed state to up
+*May 19 09:55:41.757: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/2, changed state to up
+*May 19 09:55:41.922: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/3, changed state to up
+A1(config)#vlan 2
+*May 19 09:55:45.589: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to up
+*May 19 09:55:45.711: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/2, changed state to up
+*May 19 09:55:45.934: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/3, changed state to up
+A1(config)#vlan 2
+*May 19 09:55:46.579: %LINK-3-UPDOWN: Interface Port-channel1, changed state to up
+*May 19 09:55:46.605: %LINK-3-UPDOWN: Interface Vlan1, changed state to up
+*May 19 09:55:46.921: %LINK-3-UPDOWN: Interface Port-channel2, changed state to up
+*May 19 09:55:47.579: %LINEPROTO-5-UPDOWN: Line protocol on Interface Port-channel1, changed state to up
+A1(config)#vlan 2
+*May 19 09:55:47.605: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+*May 19 09:55:47.923: %LINEPROTO-5-UPDOWN: Line protocol on Interface Port-channel2, changed state to up
+A1(config)#vlan 2
+A1(config-vlan)#
+A1(config-vlan)#
+A1(config-vlan)#
+A1(config-vlan)#
+A1(config-vlan)#
+A1(config-vlan)#
+A1(config-vlan)#name SECOND_VLAN
+A1(config-vlan)#exit
+A1(config)#vlan 3
+A1(config-vlan)#name THIRD_VLAN
+A1(config-vlan)#exit
+A1(config)#interface g1/0/23
+A1(config-if)#switchport mode access
+A1(config-if)#switchport access vlan 2
+A1(config-if)#spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast has been configured on GigabitEthernet1/0/23 but will only
+ have effect when the interface is in a non-trunking mode.
+A1(config-if)#no shutdown
+A1(config-if)#exit
+A1(config)#interface g1/0/24
+A1(config-if)#switchport mode access
+A1(config-if)#switchport access vlan 3
+A1(config-if)#spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast has been configured on GigabitEthernet1/0/24 but will only
+ have effect when the interface is in a non-trunking mode.
+A1(config-if)#no shutdown
+A1(config-if)#exit
+A1(config)#interface vlan 2
+A1(config-if)#ip address 10.0.2.3 255.255.255.0
+A1(config-if)#ipv6 address fe80::a1:1 link-local
+A1(config-if)#ipv6 address 2001:db8:acad:2::3/64
+A1(config-if)#no shutdown
+A1(config-if)#exit
+A1(config)#ip default-gateway 10.0.2.254
+A1(config)#end
+*May 19 09:56:20.512: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to up
+A1(config)#end
+*May 19 09:56:21.387: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/23, changed state to down
+*May 19 09:56:21.500: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/24, changed state to down
+A1(config)#end
+*May 19 09:56:37.744: %LINK-3-UPDOWN: Interface GigabitEthernet1/0/23, changed state to up
+*May 19 09:56:38.744: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/23, changed state to up
+A1(config)#end
+A1#
+A1#
+A1#
+A1#
+A1#
+*May 19 09:56:51.501: %SYS-5-CONFIG_I: Configured from console by console
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#en  ci onf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#clock timex zone utc 0 0
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+*May 19 09:57:08.751: %SYS-6-CLOCKUPDATE: System clock has been updated from 09:57:08 UTC Tue May 19 2026 to 09:57:08 utc Tue May 19 2026, configured from console by console.
+A1(config)#
+A1(config)#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D2(config)#clock timezone utc 0 0
+D2(config)#
+D2(config)#
+*May 19 09:01:21.934: %SYS-6-CLOCKUPDATE: System clock has been updated from 09:01:21 UTC Tue May 19 2026 to 09:01:21 utc Tue May 19 2026, configured from console by console.
+D2(config)#em nd 
+D2#
+D2#
+D2#
+D2#
+D2#w
+*May 19 09:02:03.637: %SYS-5-CONFIG_I: Configured from console by console
+D2#write memory
+Building configuration...
+[OK]
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#end
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#wr
+*May 19 09:02:20.703: %SYS-5-CONFIG_I: Configured from console by console
+D1#write meo em  m
+Building configuration...
+[OK]
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#end
+A1#
+A1#
+A1#
+A1#
+A1#wrir
+*May 19 09:59:14.907: %SYS-5-CONFIG_I: Configured from console by console
+A1#wrir te me  m
+Building configuration...
+[OK]
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#wru itw mwm  em      e mem
+Building configuration...
+[OK]
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#write mem
+Building configuration...
+
+[OK]
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R1#
+R1#
+R1#write me  m
+Building configuration...
+[OK]
+R1#
+R1#
+R1#
+R1#
+*May 19 09:12:39.831: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R1#[OK]
+*May 19 09:13:03.776: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created succesfully
+*May 19 09:13:03.778: %PKI-6-CONFIGAUTOSAVE: Running configuration saved to NVRAM
+R1#
+*May 19 09:13:06.051: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R1#
+*May 19 09:13:45.600: %SMART_LIC-3-COMM_FAILED: Communications failure with the Cisco Smart License Utility (CSLU) : Unable to resolve server hostname/domain name 
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+D1#
+D1#
+D1#
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#ip sla 4
+D1(config-ip-sla)#icmp-echo 192.168.1.1
+D1(config-ip-sla-echo)#
+D1(config-ip-sla-echo)#
+D1(config-ip-sla-echo)#frequency 15
+D1(config-ip-sla-echo)#exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#ip sla 6
+D1(config-ip-sla)#
+D1(config-ip-sla)#icmp-echo 2001:db8:acad:1000::1
+D1(config-ip-sla-echo)#freq
+D1(config-ip-sla-echo)#frequency 15
+D1(config-ip-sla-echo)#exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#ip sla schedule 4 life forever start-time now
+D1(config)#ip sla schedule 6 life forever start-time now
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#end
+D1#
+D1#
+D1#
+D1#
+D1#sj
+*May 19 09:08:05.068: %SYS-5-CONFIG_I: Configured from console by console
+D1#sj h ip sla summar
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+*4           icmp-echo   192.168.1.1       RTT=1       OK          2 seconds ago
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*6           icmp-echo   2001:DB8:ACAD:100 RTT=26      OK          11 seconds ag
+                         0::1                                      o            
+                                                                                
+                                                                                
+                                                                                
+
+D1#show ip sla summary
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#int g0/0/0
+R1(config-if)#shut
+R1(config-if)#
+*May 19 09:17:57.226: %OSPFv3-5-ADJCHG: Process 6, Nbr 2.2.2.6 on GigabitEthernet0/0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+*May 19 09:17:57.235: %OSPF-5-ADJCHG: Process 4, Nbr 2.2.2.4 on GigabitEthernet0/0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+*May 19 09:17:59.229: %LINK-5-CHANGED: Interface GigabitEthernet0/0/0, changed state to administratively down
+*May 19 09:18:00.229: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to down
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#end
+R1#
+R1#
+R1#
+R1#
+R1#sh i
+*May 19 09:18:06.311: %SYS-5-CONFIG_I: Configured from console by console
+R1#sh ip sla summary
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+
+R1#
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+*4           icmp-echo   192.168.1.1       -           Timeout     5 seconds ago
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*6           icmp-echo   2001:DB8:ACAD:100 -           Timeout     15 seconds ag
+                         0::1                                      o            
+                                                                                
+                                                                                
+                                                                                
+
+D1#
+D1#show ip sla summary
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+*4           icmp-echo   192.168.1.1       -           Timeout     11 seconds ag
+                                                                   o            
+                                                                                
+                                                                                
+                                                                                
+*6           icmp-echo   2001:DB8:ACAD:100 -           Timeout     6 seconds ago
+                         0::1                                                   
+                                                                                
+                                                                                
+                                                                                
+
+D1#
+R1#
+R1#
+R1#
+R1#ci on ft   f t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#endshutint g0/0/0
+R1(config-if)#int g0/0/0end       shutnshutoshut shut
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+*May 19 09:19:19.225: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to up
+R1(config-if)#
+*May 19 09:19:20.226: %LINEPROTO-5-UPDOWN: Line proto
+D1#
+D1#
+D1#
+D1#show ip sla summary
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+*4           icmp-echo   192.168.1.1       -           Timeout     13 seconds ag
+                                                                   o            
+                                                                                
+                                                                                
+                                                                                
+*6           icmp-echo   2001:DB8:ACAD:100 -           Timeout     8 seconds ago
+                         0::1                                                   
+                                                                                
+                                                                                
+                                                                                
+
+D1#show ip sla summary
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+*4           icmp-echo   192.168.1.1       -           Timeout     19 seconds ag
+                                                                   o            
+                                                                                
+                                                                                
+                                                                                
+*6           icmp-echo   2001:DB8:ACAD:100 -           Timeout     13 seconds ag
+                         0::1                                      o            
+                                                                                
+                                                                                
+                                                                                
+
+D1#show ip sla configuration 4
+IP SLAs Infrastructure Engine-III
+Entry number: 4
+Owner: 
+Tag: 
+Operation timeout (milliseconds): 5000
+Type of operation to perform: icmp-echo
+Target address/Source address: 192.168.1.1/0.0.0.0
+Type Of Service parameter: 0x0
+Request size (ARR data portion): 28
+Data pattern: 0xABCDABCD
+Verify data: No
+Vrf Name: 
+Do not fragment: No
+Schedule:
+   Operation frequency (seconds): 15  (not considered if randomly scheduled)
+   Next Scheduled Start Time: Start Time already passed
+   Group Scheduled : FALSE
+   Randomly Scheduled : FALSE
+   Life (seconds): Forever
+   Entry Ageout (seconds): never
+   Recurring (Starting Everyday): FALSE
+   Status of entry (SNMP RowStatus): Active
+Threshold (milliseconds): 5000
+ --More--         Distribution Statistics:
+   Number of statistic hours kept: 2
+   Number of statistic distribution buckets kept: 1
+   Statistic distribution interval (milliseconds): 20
+Enhanced History:
+History Statistics:
+   Number of history Lives kept: 0
+   Number of history Buckets kept: 15
+   History Filter Type: None
+
+
+D1#show ip sla statistics 4
+IPSLAs Latest Operation Statistics
+
+IPSLA operation id: 4
+	Latest RTT: 1 milliseconds
+Latest operation start time: 09:11:40 utc Tue May 19 2026
+Latest operation return code: OK
+Number of successes: 8
+Number of failures: 8
+Operation time to live: Forever
+
+
+D1#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#conf rt  t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D2(config)#ip sla 4
+D2(config-ip-sla)#
+D2(config-ip-sla)#icmp-echo 192.168.1.1
+D2(config-ip-sla-echo)#
+D2(config-ip-sla-echo)#frequency 15
+D2(config-ip-sla-echo)# exit
+D2(config)#
+D2(config)#ip sla 6
+D2(config-ip-sla)#
+D2(config-ip-sla)#icmp-echo 2001:db8:acad:1000::1
+D2(config-ip-sla-echo)#frequency 15
+D2(config-ip-sla-echo)#exit
+D2(config)#
+D2(config)#ip sla schedule 4 life forever start-time now
+D2(config)#ip sla schedule 6 life forever start-time now
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#em nd
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+*May 19 09:14:33.551: %SYS-5-CONFIG_I: Configured from console by console
+D2#sh ip s;la     lsa  a summary
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+*4           icmp-echo   192.168.1.1       RTT=1       OK          6 seconds ago
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*6           icmp-echo   2001:DB8:ACAD:100 RTT=1       OK          4 seconds ago
+                         0::1                                                   
+                                                                                
+                                                                                
+                                                                                
+
+D2#
+R3#
+R3#
+R3#
+R3#connf  t f t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#int g0/0/0
+R3(config-if)#shut
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+*May 19 10:02:17.541: %OSPFv3-5-ADJCHG: Process 6, Nbr 2.2.2.6 on GigabitEthernet0/0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+*May 19 10:02:17.546: %OSPF-5-ADJCHG: Process 4, Nbr 2.2.2.4 on GigabitEthernet0/0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+R3(config-if)#end
+*May 19 10:02:19.541: %LINK-5-CHANGED: Interface GigabitEthernet0/0/0, changed state to administratively down
+*May 19 10:02:20.541: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to down
+R3(config-if)#end
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+*May 19 10:02:23.646: %SYS-5-CONFIG_I: Configured from console by console
+R3#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#sh ip sla summary
+IPSLAs Latest Operation Summary
+Codes: * active, ^ inactive, ~ pending
+All Stats are in milliseconds. Stats with u are in microseconds
+
+ID           Type        Destination       Stats       Return      Last
+                                                       Code        Run 
+-----------------------------------------------------------------------
+*4           icmp-echo   192.168.1.1       -           Timeout     14 seconds ag
+                                                                   o            
+                                                                                
+                                                                                
+                                                                                
+*6           icmp-echo   2001:DB8:ACAD:100 -           Timeout     12 seconds ag
+                         0::1                                      o            
+                                                                                
+                                                                                
+                                                                                
+
+D2#
+R3#
+R3#
+R3#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#int g0-/0/0           endshutint g0/0/0end       int g0/0/0
+R3(config-if)#mo    no shut
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+*May 19 10:04:45.733: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to down
+R3(config-if)#
+*May 19 10:04:51.730: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to up
+*May 19 10:04:52.730: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to up
+R3(config-if)#
+*May 19 10:05:37.619: %OSPF-5-ADJCHG: Process 4, Nbr 2.2.2.4 on GigabitEthernet0/0/0 from LOADING to FULL, Loading Done
+R3(config-if)#
+*May 19 10:05:38.920: %OSPFv3-5-ADJCHG: Process 6, Nbr 2.2.2.6 on GigabitEthernet0/0/0 from LOADING to FULL, Loading Done
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+R3(config-if)#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#sh standby brief                end
+D1#
+D1#
+D1#
+D1#
+D1#sh
+*May 19 09:20:21.707: %SYS-5-CONFIG_I: Configured from console by console
+D1#sh standby brief
+                     P indicates configured to preempt.
+                     |
+Interface   Grp  Pri P State   Active          Standby         Virtual IP
+Vl2         2    150 P Active  local           10.0.2.2        10.0.2.254
+Vl2         26   150 P Active  local           FE80::D2:2      FE80::5:73FF:FEA0:1A
+Vl3         3    100 P Standby 10.0.3.2        local           10.0.3.254
+Vl3         36   100 P Standby FE80::D2:3      local           FE80::5:73FF:FEA0:24
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#int vlna    an 2
+D1(config-if)#shut
+D1(config-if)#
+*May 19 09:24:50.536: %HSRP-5-STATECHANGE: Vlan2 Grp 26 state Active -> Init
+*May 19 09:24:50.544: %HSRP-5-STATECHANGE: Vlan2 Grp 2 state Active -> Init
+D1(config-if)#
+*May 19 09:24:52.543: %LINK-5-CHANGED: Interface Vlan2, changed state to administratively down
+*May 19 09:24:53.543: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to down
+D1(config-if)#no shut
+D1(config-if)#
+*May 19 09:25:37.047: %LINK-5-UPDOWN: Interface Vlan2, changed state to up
+*May 19 09:25:37.764: %HSRP-5-STATECHANGE: Vlan2 Grp 2 state Listen -> Active
+D1(config-if)#
+*May 19 09:25:38.047: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to up
+D1(config-if)#
+*May 19 09:25:39.565: %HSRP-5-STATECHANGE: Vlan2 Grp 26 state Listen -> Active
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#
+D2#in t    con f  f t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#in t  t vlsn 3
+                 ^
+% Invalid input detected at '^' marker.
+
+D2(config)#int vlsn 3n 3 an 3
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#shut
+D2(config-if)#
+*May 19 09:27:54.857: %HSRP-5-STATECHANGE: Vlan3 Grp 36 state Active -> Init
+*May 19 09:27:54.863: %HSRP-5-STATECHANGE: Vlan3 Grp 3 state Active -> Init
+D2(config-if)#
+*May 19 09:27:56.863: %LINK-5-CHANGED: Interface Vlan3, changed state to administratively down
+D2(config-if)#
+*May 19 09:27:57.863: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to down
+D2(config-if)#no shut
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+*May 19 09:29:05.256: %HSRP-5-STATECHANGE: Vlan3 Grp 3 state Listen -> Active
+D2(config-if)#
+*May 19 09:29:05.784: %LINK-5-UPDOWN: Interface Vlan3, changed state to up
+*May 19 09:29:06.784: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to up
+D2(config-if)#
+*May 19 09:29:08.755: %HSRP-5-STATECHANGE: Vlan3 Grp 36 state Listen -> Active
+D2(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#
+D1(config-if)#track 4 ip sla 4                exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#track 4 ip sla 4
+D1(config-track)#
+D1(config-track)#
+D1(config-track)#
+D1(config-track)#delay down 45 up 20
+D1(config-track)#
+D1(config-track)#exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#D1(config)#
+            ^
+% Invalid input detected at '^' marker.
+
+D1(config)#track 6 ip sla 6
+D1(config-track)# delay down 45 up 20
+D1(config-track)# exit
+D1(config)#interface vlan 2
+D1(config-if)#standby 2 track 4 decrement 60
+D1(config-if)#standby 26 track 4 decrement 60
+D1(config-if)#exit
+D1(config)# interface vlan 3
+D1(config-if)#standby 3 track 4 decrement 60
+D1(config-if)# standby 36 track 4 decrement 60
+D1(config-if)# exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#
+D2(config-if)#track 6 ip sla 6
+D2(config-track)# delay down 45 up 20
+D2(config-track)# exit
+D2(config)#interface vlan 2
+D2(config-if)#standby 2 track 4 decrement 60
+D2(config-if)#standby 26 track 4 decrement 60
+D2(config-if)#exit
+D2(config)# interface vlan 3
+D2(config-if)#standby 3 track 4 decrement 60
+D2(config-if)# standby 36 track 4 decrement 60
+D2(config-if)# exit
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D2(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#track 4 ip sla 4
+D1(config-track)# delay down 45 up 20
+D1(config-track)#exit
+D1(config)# track 6 ip sla 6
+D1(config-track)# delay down 45 up 20
+D1(config-track)# exit
+D1(config)# interface vlan 2
+D1(config-if)# standby 2 track 4 decrement 60
+D1(config-if)# standby 26 track 4 decrement 60
+D1(config-if)# exit
+D1(config)# interface vlan 3
+D1(config-if)# standby 3 track 4 decrement 60
+D1(config-if)# standby 36 track 4 decrement 60
+D1(config-if)# exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#end
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+*May 19 09:42:31.418: %SYS-5-CONFIG_I: Configured from console by console
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#o endno shutint g0/0/0
+R1(config-if)#int g0/0/0end       no shutint g0/0/0end       shut
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+*May 19 09:42:42.756: %OSPFv3-5-ADJCHG: Process 6, Nbr 2.2.2.6 on GigabitEthernet0/0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+*May 19 09:42:42.764: %OSPF-5-ADJCHG: Process 4, Nbr 2.2.2.4 on GigabitEthernet0/0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+R1(config-if)#
+*May 19 09:42:44.757: %LINK-5-CHANGED: Interface GigabitEthernet0/0/0, changed state to administratively down
+*May 19 09:42:45.758: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to down
+R1(config-if)#shutint g0/0/0
+R1(config-if)#int g0/0/0shut      int g0/0/0end       no shut
+R1(config-if)#
+*May 19 09:43:39.350: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to up
+R1(config-if)#
+*May 19 09:43:40.351: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to up
+R1(config-if)#
+*May 19 09:44:23.193: %OSPF-5-ADJCHG: Process 4, Nbr 2.2.2.4 on GigabitEthernet0/0/0 from LOADING to FULL, Loading Done
+*May 19 09:44:24.167: %OSPFv3-5-ADJCHG: Process 6, Nbr 2.2.2.6 on GigabitEthernet0/0/0 from LOADING to FULL, Loading Done
+R1(config-if)#end
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+*May 19 09:44:35.712: %SYS-5-CONFIG_I: Configured from console by console
+R1#

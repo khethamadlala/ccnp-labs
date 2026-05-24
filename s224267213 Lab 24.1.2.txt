@@ -1,0 +1,1043 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2026.05.15 13:49:46 =~=~=~=~=~=~=~=~=~=~=~=
+
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+*May 15 13:50:31.682: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:50:31.762: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as console
+*May 15 13:50:31.762: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 15 13:50:31.904: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:50:32.138: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:50:32.181: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:50:32.290: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:50:32.488: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C8200L-1N-4T,SN:FCZ2920R1DE] identified
+*May 15 13:50:32.894: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:50:32.999: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 2 seconds).
+*May 15 13:50:33.015: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#hostname R1
+R1(config)#no ip domain lookup
+R1(config)#ipv6 unicast-routing
+R1(config)#banner motd # R1, Using Ping, Traceroute, and Debug #
+R1(config)#line con 0
+R1(config-line)# exec-timeout 0 0
+R1(config-line)# logging synchronous
+R1(config-line)# exit
+R1(config)#line vty 0 4
+R1(config-line)# privilege level 15
+R1(config-line)# password cisco123
+R1(config-line)# exec-timeout 0 0
+R1(config-line)# logging synchronous
+R1(config-line)# login
+R1(config-line)# exit
+R1(config)#interface g0/0/0 
+R1(config-if)# ip address 10.1.2.1 255.255.255.0
+R1(config-if)# ipv6 address fe80::1:1 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:1012::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)#interface s0/1/0
+R1(config-if)# ip address 10.1.3.1 255.255.255.128
+R1(config-if)# ipv6 address fe80::1:2 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:1013::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)#interface s0/1/1
+R1(config-if)# ip address 10.1.3.129 255.255.255.128
+R1(config-if)# ipv6 address fe80::1:3 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:1014::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)#interface loopback 0
+R1(config-if)# ip address 192.168.1.1 255.255.255.0
+R1(config-if)# ipv6 address fe80::1:4 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:1000::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)#interface loopback 1
+R1(config-if)# ip address 172.16.1.1 255.255.255.0
+R1(config-if)# ipv6 address fe80::1:5 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:1721::1/64
+R1(config-if)# no shutdown
+R1(config-if)#
+*May 15 13:50:51.083: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback0, changed state to up
+*May 15 13:50:51.108: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback1, changed state to up
+R1(config-if)#exit
+R1(config)#router ospf 4
+R1(config-router)# router-id 1.1.1.4
+R1(config-router)# network 10.0.0.0 0.255.255.255 area 0
+R1(config-router)# network 192.168.1.0 0.0.0.255 area 0
+R1(config-router)# exit
+R1(config)#ipv6 router ospf 6
+R1(config-rtr)# router-id 1.1.1.6
+R1(config-rtr)# interface g0/0/0
+R1(config-if)#  ipv6 ospf 6 area 0
+R1(config-if)#  exit
+R1(config)# interface s0/1/0
+R1(config-if)#  ipv6 ospf 6 area 0
+R1(config-if)#  exit
+R1(config)# interface s0/1/1
+R1(config-if)#  ipv6 ospf 6 area 0
+R1(config-if)#  exit
+R1(config)# interface loopback 0
+R1(config-if)#  ipv6 ospf 6 area 0
+R1(config-if)#  ipv6 ospf network point-to-point
+R1(config-if)#  exit
+R1(config)#ip route 172.16.3.0 255.255.255.0 g0/0/0 10.1.2.2
+R1(config)#end
+R1#
+*May 15 13:51:04.417: %OSPF-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+*May 15 13:51:04.576: %OSPFv3-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+R1#
+*May 15 13:51:04.852: %SYS-5-CONFIG_I: Configured from console by console
+R1#
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R2
+R2(config)#no ip domain lookup
+*May 15 13:51:41.664: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:51:41.765: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as console
+*May 15 13:51:41.765: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 15 13:51:41.901: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:51:42.123: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:51:42.168: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:51:42.275: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+
+R2(config)#ipv6 unicast-routing
+R2(config)#banner motd # R2, Using Ping, Traceroute, and Debug #
+R2(config)#line con 0
+R2(config-line)# exec-timeout 0 0
+R2(config-line)# logging synchronous
+R2(config-line)# exit
+R2(config)#line vty 0 4
+R2(config-line)# privilege level 15
+R2(config-line)# password cisco123
+R2(config-line)# exec-timeout 0 0
+R2(config-line)# logging synchronous
+R2(config-line)# login
+R2(config-line)# exit
+R2(config)#interface g0/0/0
+R2(config-if)# ip address 10.1.2.2 255.255.255.0
+R2(config-if)# ipv6 address fe80::2:1 link-local
+R2(config-if)# ipv6 address 2001:db8:acad:1012::2/64
+R2(config-if)# no shutdown
+R2(config-if)# exit
+R2(config)#interface g0/0/1
+R2(config-if)# ip address 10.2.3.2 255.255.255.0
+R2(config-if)# ipv6 address fe80::2:2 link-local
+R2(config-if)# ipv6 address 2001:db8:acad:1023::2/64
+R2(config-if)# no shutdown
+R2(config-if)# exit
+R2(config)#interface loopback 0
+R2(config-if)# ip address 192.168.2.1 255.255.255.0
+R2(config-if)# ipv6 address fe80::2:3 link-local
+R2(config-if)# ipv6 address 2001:db8:acad:2000::1/64
+R2(config-if)# no shutdown
+R2(config-if)# exit
+R2(config)#router ospf 4
+R2(config-router)# router-id 2.2.2.4
+R2(config-router)# network 10.0.0.0 0.255.255.255 area 0
+R2(config-router)# network 192.168.2.0 0.0.0.255 area 0
+R2(config-router)# exit
+R2(config)#ipv6 router ospf 6
+R2(config-rtr)# router-id 2.2.2.6
+R2(config-rtr)# interface g0/0/0
+R2(config-if)# ipv6 ospf 6 area 0
+R2(config-if)# exit
+R2(config)#interface g0/0/1
+R2(config-if)# ipv6 ospf 6 area 0
+R2(config-if)# exit
+R2(config)#interface loopback 0
+R2(config-if)# ipv6 ospf 6 area 0
+R2(config-if)# ipv6 ospf network point-to-point
+R2(config-if)# exit
+R2(config)#end
+R2#
+*May 15 13:51:42.475: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C8200L-1N-4T,SN:FCZ2920R1F3] identified
+*May 15 13:51:43.267: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:51:43.893: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 2 seconds).
+*May 15 13:51:43.907: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+*May 15 13:51:44.306: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback0, changed state to up
+*May 15 13:51:44.351: %OSPF-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+*May 15 13:51:44.531: %OSPFv3-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+R2#
+*May 15 13:51:44.577: %SYS-5-CONFIG_I: Configured from console by console
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router#comnf   nf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+*May 15 13:52:17.977: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:52:18.060: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as console
+*May 15 13:52:18.061: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 15 13:52:18.206: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:52:18.441: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:52:18.482: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:52:18.604: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:52:18.803: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C8200L-1N-4T,SN:FCZ2920R1L6] identified
+*May 15 13:52:19.198: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 13:52:19.299: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 1 seconds).
+*May 15 13:52:19.316: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#hostname R3
+R3(config)#no ip domain lookup
+R3(config)#ipv6 unicast-routing
+R3(config)#banner motd # R3, Using Ping, Traceroute, and Debug #
+R3(config)#line con 0
+R3(config-line)# exec-timeout 0 0
+R3(config-line)# logging synchronous
+R3(config-line)# exit
+R3(config)#line vty 0 4
+R3(config-line)# privilege level 15
+R3(config-line)# password cisco123
+R3(config-line)# exec-timeout 0 0
+R3(config-line)# logging synchronous
+R3(config-line)# login
+R3(config-line)# exit
+R3(config)#interface g0/0/0
+R3(config-if)# ip address 10.2.3.3 255.255.255.0
+R3(config-if)# ipv6 address fe80::3:1 link-local
+R3(config-if)# ipv6 address 2001:db8:acad:1023::3/64
+R3(config-if)# no shutdown
+R3(config-if)# exit
+R3(config)#interface s0/1/0
+R3(config-if)# ip address 10.1.3.3 255.255.255.128
+R3(config-if)# ipv6 address fe80::3:2 link-local
+R3(config-if)# ipv6 address 2001:db8:acad:1013::3/64
+R3(config-if)# no shutdown
+R3(config-if)# exit
+R3(config)#interface s0/1/1
+R3(config-if)# ip address 10.1.3.130 255.255.255.128
+R3(config-if)# ipv6 address fe80::3:3 link-local
+R3(config-if)# ipv6 address 2001:db8:acad:1014::3/64
+R3(config-if)# no shutdown
+R3(config-if)# exit
+R3(config)#interface loopback 0
+R3(config-if)# ip address 192.168.3.1 255.255.255.0
+R3(config-if)# ipv6 address fe80::3:4 link-local
+R3(config-if)# ipv6 address 2001:db8:acad:3000::1/64
+R3(config-if)# no shutdown
+R3(config-if)# exit
+R3(config)#router ospf 4
+R3(config-router)# router-id 3.3.3.4
+R3(config-router)# network 10.0.0.0 0.255.255.255 area 0
+R3(config-router)# network 192.168.3.0 0.0.0.255 area 0
+R3(config-router)# exit
+R3(config)#ipv6 router ospf 6
+R3(config-rtr)# router-id 3.3.3.6
+R3(config-rtr)#interface g0/0/0
+R3(config-if)# ipv6 ospf 6 area 0
+R3(config-if)# exit
+R3(config)#interface s0/1/0
+R3(config-if)# ipv6 ospf 6 area 0
+R3(config-if)# exit
+R3(config)#interface s0/1/1
+R3(config-if)# ipv6 ospf 6 area 0
+R3(config-if)# exit
+R3(config)#interface loopback 0
+R3(config-if)# ipv6 ospf 6 area 0
+R3(config-if)# ipv6 ospf network point-to-point
+R3(config-if)# exit
+R3(config)#end
+R3#
+*May 15 13:52:42.345: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback0, changed state to up
+*May 15 13:52:42.371: %OSPF-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+*May 15 13:52:42.547: %OSPFv3-6-DFT_OPT: Protocol timers for fast convergence are Enabled.
+R3#
+*May 15 13:52:42.586: %SYS-5-CONFIG_I: Configured from console by console
+*May 15 13:52:42.875: %OSPF-5-ADJCHG: Process 4, Nbr 1.1.1.4 on Serial0/1/1 from LOADING to FULL, Loading Done
+*May 15 13:52:42.875: %OSPF-5-ADJCHG: Process 4, Nbr 1.1.1.4 on Serial0/1/0 from LOADING to FULL, Loading Done
+*May 15 13:52:43.421: %OSPFv3-5-ADJCHG: Process 6, Nbr 2.2.2.6 on GigabitEthernet0/0/0 from LOADING to FULL, Loading Done
+R3#
+*May 15 13:52:43.593: %OSPFv3-5-ADJCHG: Process 6, Nbr 1.1.1.6 on Serial0/1/1 from LOADING to FULL, Loading Done
+*May 15 13:52:43.594: %OSPFv3-5-ADJCHG: Process 6, Nbr 1.1.1.6 on Serial0/1/0 from LOADING to FULL, Loading Done
+R3#c
+*May 15 13:52:46.373: %OSPF-5-ADJCHG: Process 4, Nbr 2.2.2.4 on GigabitEthernet0/0/0 from LOADING to FULL, Loading Done
+R3#clocl   k timec zonr   e utc 0 0
+         ^
+% Invalid input detected at '^' marker.
+
+R3#conft  t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#clock timex zobn  ne utc 0 0
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#
+R3(config)#
+*May 15 13:53:19.825: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:53:19 UTC Fri May 15 2026 to 13:53:19 utc Fri May 15 2026, configured from console by console.
+R3(config)#end
+R3#
+R3#
+R3#
+*May 15 13:53:27.290: %SYS-5-CONFIG_I: Configured from console by console
+R3#
+R3#write memory
+Building configuration...
+[OK]
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+*May 15 13:53:37.015: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R3#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#cof nf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#clock timezone utc 0 0
+R2(config)#
+R2(config)#
+R2(config)#
+*May 15 13:53:54.383: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:53:54 UTC Fri May 15 2026 to 13:53:54 utc Fri May 15 2026, configured from console by console.
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#
+R2(config)#end
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+*May 15 13:53:58.774: %SYS-5-CONFIG_I: Configured from console by console
+R2#write mo emoe ry
+Building configuration...
+[OK]
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+*May 15 13:54:10.970: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R2#
+R2#
+R2#
+R2#
+R2#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#conft
+% Bad IP address or host name% Unknown command or computer name, or unable to find computer address
+R1#conft t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#w clock timezone utc 0 0
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+*May 15 13:54:36.945: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:54:36 UTC Fri May 15 2026 to 13:54:36 utc Fri May 15 2026, configured from console by console.
+R1(config)#
+R1(config)#
+R1(config)#end
+R1# 
+*May 15 13:54:40.658: %SYS-5-CONFIG_I: Configured from console by console
+R1#  timw ezone          wru=ite       u ite memory
+Building configuration...
+[OK]
+R1#
+R1#
+*May 15 13:55:02.532: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R1#[OK]
+*May 15 13:55:25.359: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created succesfully
+*May 15 13:55:25.361: %PKI-6-CONFIGAUTOSAVE: Running configuration saved to NVRAM
+R1#
+*May 15 13:55:27.588: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R1#
+*May 15 13:55:27.709: %CALL_HOME-6-CALL_HOME_ENABLED: Call-home is enabled by Smart Agent for Licensing.
+R1#
+R1#
+R1#
+R1#
+R1#
+*May 15 13:56:07.159: %SMART_LIC-3-COMM_FAILED: Communications failure with the Cisco Smart License Utility (CSLU) : Unable to resolve server hostname/domain name 
+R1#ping 192.168.3.1 source Loopback0
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.3.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.1.1 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/5 ms
+R1#ping 172.16.3.1 source Loopback0
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.3.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.1.1 
+U.U.U
+Success rate is 0 percent (0/5)
+R1#ping 192.168.3.1 source Loopback0 size 1750 df-bit
+Type escape sequence to abort.
+Sending 5, 1750-byte ICMP Echos to 192.168.3.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.1.1 
+Packet sent with the DF bit set
+.....
+Success rate is 0 percent (0/5)
+R1#ping
+Protocol [ip]: 192.168.3.1
+% Unknown protocol - "192.168.3.1", type "ping ?" for help
+R1#192.168.3.1ping       
+Protocol [ip]: ping192.168.3.1?
+% Unknown protocol - "192.168.3.1?", type "ping ?" for help
+R1#ping
+Protocol [ip]: 192.168.3.1
+% Unknown protocol - "192.168.3.1", type "ping ?" for help
+R1#
+R1#ping?
+ping  
+
+R1#ping ?
+  WORD      Ping destination address or hostname
+  ancp      ANCP echo
+  clns      CLNS echo
+  ethernet  Ethernet echo
+  ip        IP echo
+  ipv6      IPv6 echo
+  srb       srb echo
+  tag       Tag encapsulated IP echo
+  <cr>      <cr>
+
+R1#ping 
+Protocol [ip]: 192.186  68.3.1
+% Unknown protocol - "192.168.3.1", type "ping ?" for help
+R1#traceroute?
+traceroute  
+
+R1#traceroute ?
+  WORD       Trace route to destination address or hostname
+  aaa        Define trace options for AAA events/actions/errors
+  appletalk  AppleTalk Trace
+  clns       ISO CLNS Trace
+  ethernet   Ethernet Traceroute
+  ip         IP Trace
+  ipv6       IPv6 Trace
+  ipx        IPX Trace
+  <cr>       <cr>
+
+R1#traceroute 192.168.3.1 ?
+  dscp     Specify DSCP value in ASCII/Numeric
+  egress   Force egress interface bypassing routing
+  ingress  LAN source interface for Ingress
+  numeric  display numeric address
+  port     specify port number
+  probe    specify number of probes per hop
+  source   specify source address or name
+  timeout  specify time out
+  ttl      specify minimum and maximum ttl
+  <cr>     <cr>
+
+R1#traceroute 192.168.3.1  
+Type escape sequence to abort.
+Tracing the route to 192.168.3.1
+VRF info: (vrf in name/id, vrf out name/id)
+  1 10.1.2.2 3 msec 4 msec 5 msec
+  2 10.2.3.3 34 msec *  8 msec
+R1#traceroute 192.168.3.1 source Loopback0 ttl 2 10
+Type escape sequence to abort.
+Tracing the route to 192.168.3.1
+VRF info: (vrf in name/id, vrf out name/id)
+  2 10.2.3.3 3 msec *  7 msec
+R1#traceroute 172.16.3.1
+Type escape sequence to abort.
+Tracing the route to 172.16.3.1
+VRF info: (vrf in name/id, vrf out name/id)
+  1 10.1.2.2 6 msec 4 msec 5 msec
+  2 10.1.2.2 !H  *  !H 
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#ping
+Protocol [ip]: 
+Target IP address: 192.168.3.1
+Repeat count [5]: 1
+Datagram size [100]: 
+Timeout in seconds [2]: 
+Extended commands [n]: y
+Ingress ping [n]: 
+Source address or interface: loopback0
+DSCP Value [0]: 
+Type of service [0]: 
+Set DF bit in IP header? [no]: y
+Validate reply data? [no]: 
+Data pattern [0x0000ABCD]: 
+Loose, Strict, Record, Timestamp, Verbose[none]: 
+Sweep range of sizes [n]: y
+Sweep min size [36]: 1475
+Sweep max size [18024]: 1515
+Sweep interval [1]: 
+Type escape sequence to abort.
+Sending 41, [1475..1515]-byte ICMP Echos to 192.168.3.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.1.1 
+Packet sent with the DF bit set
+!!!!!!!!!!!!!!!!!!!!!!!!!!...............
+Success rate is 63 percent (26/41), round-trip min/avg/max = 4/5/6 ms
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#trace
+R1#traceroute 
+Protocol [ip]: 
+Target IP address: 192.168.3.1
+Ingress traceroute [n]: 
+Source address or interface: loopback0
+DSCP Value [0]: 
+Numeric display [n]: 
+Timeout in seconds [3]: 
+Probe count [3]: 
+Minimum Time to Live [1]: 
+Maximum Time to Live [30]: 
+Port Number [33434]: 
+Loose, Strict, Record, Timestamp, Verbose[none]: 
+Type escape sequence to abort.
+Tracing the route to 192.168.3.1
+VRF info: (vrf in name/id, vrf out name/id)
+  1 10.1.2.2 1 msec 4 msec 10 msec
+  2 10.2.3.3 7 msec *  11 msec
+R1#debug ipv6 nd
+  ICMP Neighbor Discovery events debugging is on
+  ICMP ND HA events debugging is ON
+R1#debug ipv6 nd
+  ICMP Neighbor Discovery events debugging is on
+  ICMP ND HA events debugging is ON
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#sh debug
+IOSXE Conditional Debug Configs:
+
+Conditional Debug Global State: Stop
+
+
+IOSXE Packet Tracing Configs: 
+
+
+
+
+
+  ICMP Neighbor Discovery events debugging is on
+  ICMP ND HA events debugging is ON
+Packet Infra debugs:
+
+Ip Address                                               Port
+------------------------------------------------------|----------
+
+
+ 
+ 
+R1#
+*May 15 14:07:06.049: ICMPv6-ND: (GigabitEthernet0/0/0,FE80::2:1) Received RA
+*May 15 14:07:06.050: ICMPv6-ND: Validating ND packet options: valid
+*May 15 14:07:06.050: ICMPv6-ND: Prefix : 2001:DB8:ACAD:1012::, Length: 64, Vld Lifetime: 2592000, Prf Lifetime: 604800, PI Flags: C0
+R1#undeg=  bug alk l
+All possible debugging has been turned off
+R1#
+R1#debug ip icmp
+ICMP packet debugging is on
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#ping 172.16.3.1 source loopback0 repeat 1
+Type escape sequence to abort.
+Sending 1, 100-byte ICMP Echos to 172.16.3.1, timeout is 2 seconds:
+Packet sent with a source address of 192.168.1.1 
+U
+Success rate is 0 percent (0/1)
+R1#
+*May 15 14:07:48.045: ICMP: dst (192.168.1.1) host unreachable rcv from 10.1.2.2 
+R1#und= ebug aLL  ll
+All possible debugging has been turned off
+R1#
+R1#
+R1#debug ip   packet
+IP packet debugging is on
+R1#
+*May 15 14:08:11.627: IP: s=10.1.2.1 (local), d=224.0.0.5 (GigabitEthernet0/0/0), len 100, sending broad/multicast
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+*May 15 14:08:17.752: IP: s=10.1.3.129 (local), d=224.0.0.5 (Serial0/1/1), len 100, sending broad/multicast
+*May 15 14:08:18.396: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#
+R1#
+*May 15 14:08:21.458: IP: s=10.1.2.1 (local), d=224.0.0.5 (GigabitEthernet0/0/0), len 100, sending broad/multicast
+R1#
+*May 15 14:08:26.776: IP: s=10.1.3.129 (local), d=224.0.0.5 (Serial0/1/1), len 100, sending broad/multicast
+*May 15 14:08:27.565: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#
+*May 15 14:08:31.445: IP: s=10.1.2.1 (local), d=224.0.0.5 (GigabitEthernet0/0/0), len 100, sending broad/multicast
+R1#
+*May 15 14:08:35.829: IP: s=10.1.3.129 (local), d=224.0.0.5 (Serial0/1/1), len 100, sending broad/multicast
+R1#
+*May 15 14:08:37.398: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#
+*May 15 14:08:41.056: IP: s=10.1.2.1 (local), d=224.0.0.5 (GigabitEthernet0/0/0), len 100, sending broad/multicast
+R1#
+*May 15 14:08:45.266: IP: s=10.1.3.129 (local), d=224.0.0.5 (Serial0/1/1), len 100, sending broad/multicast
+R1#
+*May 15 14:08:46.900: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#
+*May 15 14:08:50.468: IP: s=10.1.2.1 (local), d=224.0.0.5 (GigabitEthernet0/0/0), len 100, sending broad/multicast
+R1#undebug all
+*May 15 14:08:55.167: IP: s=10.1.3.129 (local), d=224.0.0.5 (Serial0/1/1), len 100, sending broad/multicast
+R1#undebug all
+All possible debugging has been turned off
+R1#
+*May 15 14:08:56.193: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#access  -lit st q 1 permit host 10.1.3.1
+R1(config)#exit
+R1#
+*May 15 14:09:26.744: %SYS-5-CONFIG_I: Configured from console by console
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#debug ip packet 1
+IP packet debugging is on for access list 1
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+*May 15 14:09:43.469: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#
+*May 15 14:09:52.941: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#
+*May 15 14:10:02.198: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#undebug
+*May 15 14:10:11.700: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicast
+R1#undebug all
+All possible debugging has been turned off
+R1#
+R1#
+R1#
+R1#
+R1#debug in s0/1/0
+% Ambiguous command:  "debug in s0/1/0"
+R1#debug in s0/1/0nt s0/1/0
+Condition 1 set
+R1#Output intf Se0/1/0 matches debug filer 
+
+*May 15 14:10:45.495: IOSXE-INJECT: set pak datagramstart(from 0x7F495BD25688 to 0x7F495BD25688), datagramsize(from 80 to 80);
+*May 15 14:10:45.512: IOSXE-INJECT: pak type L3 IPv6 preroute to interface Se0/1/0 nexthop FF02::5
+*May 15 14:10:45.512: IOSXE-INJECT: inject adj-id[2] 0xF8000097, 0x0, tx 152
+*May 15 14:10:45.512: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:10:45.512: IOSXE-INJECT: In case IPV6 pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:10:45.512: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ipv6, pak len 80, total len 132, inject type adjacency, seqnum 998
+*May 15 14:10:45.512: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:10:45.512:  send out the l3 packet to cpp: hi-prio
+7F495BD25650:          01020000 00000050 00841400      .......P....
+7F495BD25660: 20040000 00000000 00000009 01000001   ...............
+7F495BD25670: 00100700 01000000 00000000 F8000097  ............x...
+7F495BD25680: 00000000 00000000 6C000000 00285901  ........l....(Y.
+7F495BD25690: FE800000 00000000 00000000 00010002  ~...............
+7F495BD256A0: FF020000 00000000 00000000 00000005  ................
+7F495BD256B0: 03010028 01010106 00000000 F56B0000  ...(........uk..
+7F495BD256C0: 00000009 01000013 000A0028 00000000  ...........(....
+7F495BD256D0: 00000000                             ....            
+*May 15 14:10:45.526:  IPv6 next hdr OSPF ...
+*May 15 14:10:45.526: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 998
+*May 15 14:10:45.526: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#Output intf Se0/1/0 matches debug filer 
+
+*May 15 14:10:49.784: IOSXE-INJECT: set pak datagramstart(from 0x7F495BD2B230 to 0x7F495BD2B230), datagramsize(from 4 to 100);
+*May 15 14:10:49.784: IOSXE-INJECT: set inject sb with outbound intf Se0/1/0 and mcast address 224.0.0.5
+*May 15 14:10:49.785: IOSXE-INJECT: pak type L3 IP preroute to interface Se0/1/0 nexthop 224.0.0.5
+*May 15 14:10:49.785: IOSXE-INJECT: inject adj-id[2] 0xF8000096, 0x0, tx 139
+*May 15 14:10:49.785: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:10:49.785: IOSXE-INJECT: In case IP pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:10:49.785: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ip, pak len 100, total len 152, inject type adjacency, seqnum 1001
+*May 15 14:10:49.785: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:10:49.785:  send out the l3 packet to cpp: hi-prio
+7F495BD2B1F0:                            01020000              ....
+7F495BD2B200: 00000064 00981400 20010000 00000000  ...d.... .......
+7F495BD2B210: 00000009 01000001 00100700 01000000  ................
+7F495BD2B220: 00000000 F8000096 00000000 00000000  ....x...........
+7F495BD2B230: 45C00064 01F50000 0159C985 0A010301  E@.d.u...YI.....
+R1#
+7F495BD2B240: E0000005 02010030 01010104 00000000  `......0........
+7F495BD2B250: E40E0000 00000000 00000000 FFFFFF80  d...............
+7F495BD2B260: 000A1201 00000028 00000000 00000000  .......(........
+7F495BD2B270: 03030304 7FB80008 00010004           .....8......    
+*May 15 14:10:49.787:  IP protocol OSPF ...
+*May 15 14:10:49.787: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 1001
+*May 15 14:10:49.787: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#Output intf Se0/1/0 matches debug filer 
+
+*May 15 14:10:54.877: IOSXE-INJECT: set pak datagramstart(from 0x7F495BD57540 to 0x7F495BD57540), datagramsize(from 80 to 80);
+*May 15 14:10:54.877: IOSXE-INJECT: pak type L3 IPv6 preroute to interface Se0/1/0 nexthop FF02::5
+*May 15 14:10:54.877: IOSXE-INJECT: inject adj-id[2] 0xF8000097, 0x0, tx 153
+*May 15 14:10:54.877: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:10:54.877: IOSXE-INJECT: In case IPV6 pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:10:54.878: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ipv6, pak len 80, total len 132, inject type adjacency, seqnum 1004
+*May 15 14:10:54.878: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:10:54.878:  send out the l3 packet to cpp: hi-prio
+7F495BD57500:                            01020000              ....
+7F495BD57510: 00000050 00841400 20040000 00000000  ...P.... .......
+7F495BD57520: 00000009 01000001 00100700 01000000  ................
+7F495BD57530: 00000000 F8000097 00000000 00000000  ....x...........
+7F495BD57540: 6C000000 00285901 FE800000 00000000  l....(Y.~.......
+7F495BD57550: 00000000 00010002 FF020000 00000000  ................
+7F495BD57560: 00000000 00000005 03010028 01010106  ...........(....
+R1#
+7F495BD57570: 00000000 F56B0000 00000009 01000013  ....uk..........
+7F495BD57580: 000A0028 00000000 00000000           ...(........    
+*May 15 14:10:54.880:  IPv6 next hdr OSPF ...
+*May 15 14:10:54.880: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 1004
+*May 15 14:10:54.880: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#debug ip Output intf Se0/1/0 matches debug filer 
+
+*May 15 14:10:59.756: IOSXE-INJECT: set pak datagramstart(from 0x7F495BD5EB18 to 0x7F495BD5EB18), datagramsize(from 4 to 100);
+*May 15 14:10:59.756: IOSXE-INJECT: set inject sb with outbound intf Se0/1/0 and mcast address 224.0.0.5
+*May 15 14:10:59.756: IOSXE-INJECT: pak type L3 IP preroute to interface Se0/1/0 nexthop 224.0.0.5
+*May 15 14:10:59.756: IOSXE-INJECT: inject adj-id[2] 0xF8000096, 0x0, tx 140
+*May 15 14:10:59.756: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:10:59.756: IOSXE-INJECT: In case IP pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:10:59.756: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ip, pak len 100, total len 152, inject type adjacency, seqnum 1008
+*May 15 14:10:59.756: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:10:59.756:  send out the l3 packet to cpp: hi-prio
+7F495BD5EAE0:          01020000 00000064 00981400      .......d....
+7F495BD5EAF0: 20010000 00000000 00000009 01000001   ...............
+7F495BD5EB00: 00100700 01000000 00000000 F8000096  ............x...
+7F495BD5EB10: 00000000 00000000 45C00064 01F90000  ........E@.d.y..
+7F495BD5EB20: 0159C981 0A010301 E0000005 02010030  .YI.....`......0
+R1#debug ip [
+7F495BD5EB30: 01010104 00000000 E40E0000 00000000  ........d.......
+7F495BD5EB40: 00000000 FFFFFF80 000A1201 00000028  ...............(
+7F495BD5EB50: 00000000 00000000 03030304 7FB80008  .............8..
+7F495BD5EB60: 00010004                             ....            
+*May 15 14:10:59.758:  IP protocol OSPF ...
+*May 15 14:10:59.758: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 1008
+*May 15 14:10:59.758: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#debug ip [acket      paOutput intf Se0/1/0 matches debug filer 
+
+*May 15 14:11:04.543: IOSXE-INJECT: set pak datagramstart(from 0x7F495BD69550 to 0x7F495BD69550), datagramsize(from 80 to 80);
+*May 15 14:11:04.543: IOSXE-INJECT: pak type L3 IPv6 preroute to interface Se0/1/0 nexthop FF02::5
+*May 15 14:11:04.543: IOSXE-INJECT: inject adj-id[2] 0xF8000097, 0x0, tx 154
+*May 15 14:11:04.543: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:11:04.543: IOSXE-INJECT: In case IPV6 pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:11:04.543: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ipv6, pak len 80, total len 132, inject type adjacency, seqnum 1010
+*May 15 14:11:04.543: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:11:04.543:  send out the l3 packet to cpp: hi-prio
+7F495BD69510:                            01020000              ....
+7F495BD69520: 00000050 00841400 20040000 00000000  ...P.... .......
+7F495BD69530: 00000009 01000001 00100700 01000000  ................
+7F495BD69540: 00000000 F8000097 00000000 00000000  ....x...........
+7F495BD69550: 6C000000 00285901 FE800000 00000000  l....(Y.~.......
+7F495BD69560: 00000000 00010002 FF020000 00000000  ................
+7F495BD69570: 00000000 00000005 03010028 01010106  ...........(....
+R1#debug ip packet
+7F495BD69580: 00000000 F56B0000 00000009 01000013  ....uk..........
+7F495BD69590: 000A0028 00000000 00000000           ...(........    
+*May 15 14:11:04.545:  IPv6 next hdr OSPF ...
+*May 15 14:11:04.545: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 1010
+*May 15 14:11:04.545: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#debug ip packet
+IP packet debugging is on
+R1#
+*May 15 14:11:09.396: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicastOutput intf Se0/1/0 matches debug filer 
+
+*May 15 14:11:09.396: IOSXE-INJECT: set pak datagramstart(from 0x7F495BD7C278 to 0x7F495BD7C278), datagramsize(from 4 to 100);
+*May 15 14:11:09.396: IOSXE-INJECT: set inject sb with outbound intf Se0/1/0 and mcast address 224.0.0.5
+*May 15 14:11:09.396: IOSXE-INJECT: pak type L3 IP preroute to interface Se0/1/0 nexthop 224.0.0.5
+*May 15 14:11:09.396: IOSXE-INJECT: inject adj-id[2] 0xF8000096, 0x0, tx 141
+*May 15 14:11:09.396: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:11:09.396: IOSXE-INJECT: In case IP pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:11:09.396: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ip, pak len 100, total len 152, inject type adjacency, seqnum 1014
+*May 15 14:11:09.396: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:11:09.396:  send out the l3 packet to cpp: hi-prio
+7F495BD7C240:          01020000 00000064 00981400      .......d....
+7F495BD7C250: 20010000 00000000 00000009 01000001   ...............
+7F495BD7C260: 00100700 01000000 00000000 F8000096  ............x...
+R1#
+7F495BD7C270: 00000000 00000000 45C00064 01FC0000  ........E@.d.|..
+7F495BD7C280: 0159C97E 0A010301 E0000005 02010030  .YI~....`......0
+7F495BD7C290: 01010104 00000000 E40E0000 00000000  ........d.......
+7F495BD7C2A0: 00000000 FFFFFF80 000A1201 00000028  ...............(
+7F495BD7C2B0: 00000000 00000000 03030304 7FB80008  .............8..
+7F495BD7C2C0: 00010004                             ....            
+*May 15 14:11:09.399:  IP protocol OSPF ...
+*May 15 14:11:09.399: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 1014
+*May 15 14:11:09.399: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#undebug allOutput intf Se0/1/0 matches debug filer 
+
+*May 15 14:11:14.313: IOSXE-INJECT: set pak datagramstart(from 0x7F495BDA9FB8 to 0x7F495BDA9FB8), datagramsize(from 80 to 80);
+*May 15 14:11:14.313: IOSXE-INJECT: pak type L3 IPv6 preroute to interface Se0/1/0 nexthop FF02::5
+*May 15 14:11:14.314: IOSXE-INJECT: inject adj-id[2] 0xF8000097, 0x0, tx 155
+*May 15 14:11:14.314: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:11:14.314: IOSXE-INJECT: In case IPV6 pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:11:14.314: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ipv6, pak len 80, total len 132, inject type adjacency, seqnum 1016
+*May 15 14:11:14.314: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:11:14.314:  send out the l3 packet to cpp: hi-prio
+7F495BDA9F80:          01020000 00000050 00841400      .......P....
+7F495BDA9F90: 20040000 00000000 00000009 01000001   ...............
+7F495BDA9FA0: 00100700 01000000 00000000 F8000097  ............x...
+7F495BDA9FB0: 00000000 00000000 6C000000 00285901  ........l....(Y.
+7F495BDA9FC0: FE800000 00000000 00000000 00010002  ~...............
+7F495BDA9FD0: FF020000 00000000 00000000 00000005  ................
+7F495BDA9FE0: 03010028 01010106 00000000 F56B0000  ...(........uk..
+R1#undebug all
+7F495BDA9FF0: 00000009 01000013 000A0028 00000000  ...........(....
+7F495BDAA000: 00000000                             ....            
+*May 15 14:11:14.316:  IPv6 next hdr OSPF ...
+*May 15 14:11:14.316: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 1016
+*May 15 14:11:14.316: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#undebug all
+*May 15 14:11:18.470: IP: s=10.1.3.1 (local), d=224.0.0.5 (Serial0/1/0), len 100, sending broad/multicastOutput intf Se0/1/0 matches debug filer 
+
+*May 15 14:11:18.470: IOSXE-INJECT: set pak datagramstart(from 0x7F495BDB3CD8 to 0x7F495BDB3CD8), datagramsize(from 100 to 100);
+*May 15 14:11:18.470: IOSXE-INJECT: set inject sb with outbound intf Se0/1/0 and mcast address 224.0.0.5
+*May 15 14:11:18.470: IOSXE-INJECT: pak type L3 IP preroute to interface Se0/1/0 nexthop 224.0.0.5
+*May 15 14:11:18.470: IOSXE-INJECT: inject adj-id[2] 0xF8000096, 0x0, tx 142
+*May 15 14:11:18.470: IOSXE-INJECT: add L3 inject hdr
+*May 15 14:11:18.470: IOSXE-INJECT: In case IP pak->ip_tableid not set, Set pak->ip_tableid 0x0
+*May 15 14:11:18.470: IOSXE-INJECT: inject hdr len 52, feature hdr len 20, l2-enc len 0, link type ip, pak len 100, total len 152, inject type adjacency, seqnum 1020
+*May 15 14:11:18.470: IOSXE-INJECT: inject_sb inject_flag=0x2, subtype=0, type_flags=0x0, 
+*May 15 14:11:18.470:  send out the l3 packet to cpp: hi-prio
+7F495BDB3CA0:          01020000 00000064 00981400      .......d....
+7F495BDB3CB0: 20010000 00000000 00000009 01000001   ...............
+7F495BDB3CC0: 00100700 01000000 00000000 F8000096  ............x...
+R1#undebug all
+7F495BDB3CD0: 00000000 00000000 45C00064 01FF0000  ........E@.d....
+7F495BDB3CE0: 0159C97B 0A010301 E0000005 02010030  .YI{....`......0
+7F495BDB3CF0: 01010104 00000000 E40E0000 00000000  ........d.......
+7F495BDB3D00: 00000000 FFFFFF80 000A1201 00000028  ...............(
+7F495BDB3D10: 00000000 00000000 03030304 7FB80008  .............8..
+7F495BDB3D20: 00010004                             ....            
+*May 15 14:11:18.472:  IP protocol OSPF ...
+*May 15 14:11:18.473: IOSXE-INJECT: pak inject type adjacency, ready for tx, seqnum 1020
+*May 15 14:11:18.473: IOSXE-INJECT: inject_hdr pal_if_handle=0x9, flags=0x10, cause=7, sub_cause=0
+R1#undebug all
+1 conditions have been removed
+All possible debugging has been turned off
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#sh ip ospf neigh
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+3.3.3.4           0   FULL/  -        00:00:30    10.1.3.130      Serial0/1/1
+3.3.3.4           0   FULL/  -        00:00:31    10.1.3.3        Serial0/1/0
+2.2.2.4           1   FULL/BDR        00:00:37    10.1.2.2        GigabitEthernet0/0/0
+R1#
+R1#
+R1#
+R1#debug ip osd pf hello
+OSPF hello debugging is on
+R1#
+R1#
+R1#
+R1#
+R1#
+*May 15 14:12:01.738: OSPF-4 HELLO Gi0/0/0: Rcv hello from 2.2.2.4 area 0 10.1.2.2
+*May 15 14:12:02.034: OSPF-4 HELLO Gi0/0/0: Send hello to 224.0.0.5 area 0 from 10.1.2.1
+R1#
+*May 15 14:12:04.124: OSPF-4 HELLO Se0/1/1: Rcv hello from 3.3.3.4 area 0 10.1.3.130
+R1#
+*May 15 14:12:05.420: OSPF-4 HELLO Se0/1/1: Send hello to 224.0.0.5 area 0 from 10.1.3.129
+*May 15 14:12:06.326: OSPF-4 HELLO Se0/1/0: Rcv hello from 3.3.3.4 area 0 10.1.3.3
+R1#show ip ospf interface s0/1/1 | include Timer
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+R1#
+*May 15 14:12:07.096: OSPF-4 HELLO Se0/1/0: Send hello to 224.0.0.5 area 0 from 10.1.3.1
+R1#
+*May 15 14:12:11.224: OSPF-4 HELLO Gi0/0/0: Rcv hello from 2.2.2.4 area 0 10.1.2.2
+*May 15 14:12:11.801: OSPF-4 HELLO Gi0/0/0: Send hello to 224.0.0.5 area 0 from 10.1.2.1
+R1#
+*May 15 14:12:13.497: OSPF-4 HELLO Se0/1/1: Rcv hello from 3.3.3.4 area 0 10.1.3.130
+R1#
+R1#
+*May 15 14:12:15.396: OSPF-4 HELLO Se0/1/1: Send hello to 224.0.0.5 area 0 from 10.1.3.129
+*May 15 14:12:15.553: OSPF-4 HELLO Se0/1/0: Rcv hello from 3.3.3.4 area 0 10.1.3.3
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+*May 15 14:12:16.439: OSPF-4 HELLO Se0/1/0: Send hello to 224.0.0.5 area 0 from 10.1.3.1
+R1#
+*May 15 14:12:20.830: OSPF-4 HELLO Gi0/0/0: Rcv hello from 2.2.2.4 area 0 10.1.2.2
+*May 15 14:12:21.463: OSPF-4 HELLO Gi0/0/0: Send hello to 224.0.0.5 area 0 from 10.1.2.1
+R1#
+*May 15 14:12:22.588: OSPF-4 HELLO Se0/1/1: Rcv hello from 3.3.3.4 area 0 10.1.3.130
+R1#
+*May 15 14:12:24.562: OSPF-4 HELLO Se0/1/0: Rcv hello from 3.3.3.4 area 0 10.1.3.3
+*May 15 14:12:25.395: OSPF-4 HELLO Se0/1/1: Send hello to 224.0.0.5 area 0 from 10.1.3.129
+R1#debug ip ospf adj
+*May 15 14:12:26.018: OSPF-4 HELLO Se0/1/0: Send hello to 224.0.0.5 area 0 from 10.1.3.1
+R1#debug ip ospf adj
+OSPF adjacency debugging is on
+R1#
+R1#
+R1#
+*May 15 14:12:30.585: OSPF-4 HELLO Gi0/0/0: Rcv hello from 2.2.2.4 area 0 10.1.2.2
+*May 15 14:12:30.657: OSPF-4 HELLO Gi0/0/0: Send hello to 224.0.0.5 area 0 from 10.1.2.1
+R1#
+*May 15 14:12:32.367: OSPF-4 HELLO Se0/1/1: Rcv hello from 3.3.3.4 area 0 10.1.3.130
+R1#
+*May 15 14:12:34.073: OSPF-4 HELLO Se0/1/0: Rcv hello from 3.3.3.4 area 0 10.1.3.3
+R1#
+*May 15 14:12:35.127: OSPF-4 HELLO Se0/1/0: Send hello to 224.0.0.5 area 0 from 10.1.3.1
+*May 15 14:12:35.339: OSPF-4 HELLO Se0/1/1: Send hello to 224.0.0.5 area 0 from 10.1.3.129
+R1#
+*May 15 14:12:40.056: OSPF-4 HELLO Gi0/0/0: Send hello to 224.0.0.5 area 0 from 10.1.2.1
+*May 15 14:12:40.354: OSPF-4 HELLO Gi0/0/0: Rcv hello from 2.2.2.4 area 0 10.1.2.2
+R1#
+*May 15 14:12:41.374: OSPF-4 HELLO Se0/1/1: Rcv hello from 3.3.3.4 area 0 10.1.3.130
+R1#
+*May 15 14:12:43.187: OSPF-4 HELLO Se0/1/0: Rcv hello from 3.3.3.4 area 0 10.1.3.3
+R1#
+R1#
+R1#
+R1#show ip ospf neighbor
+*May 15 14:12:44.412: OSPF-4 HELLO Se0/1/1: Send hello to 224.0.0.5 area 0 from 10.1.3.129
+*May 15 14:12:44.571: OSPF-4 HELLO Se0/1/0: Send hello to 224.0.0.5 area 0 from 10.1.3.1
+R1#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+3.3.3.4           0   FULL/  -        00:00:35    10.1.3.130      Serial0/1/1
+3.3.3.4           0   FULL/  -        00:00:37    10.1.3.3        Serial0/1/0
+2.2.2.4           1   FULL/BDR        00:00:34    10.1.2.2        GigabitEthernet0/0/0
+R1#
+R1#
+R1#
+R1#
+R1#undebug all
+*May 15 14:12:50.011: OSPF-4 HELLO Gi0/0/0: Send hello to 224.0.0.5 area 0 from 10.1.2.1
+*May 15 14:12:50.194: OSPF-4 HELLO Gi0/0/0: Rcv hello from 2.2.2.4 area 0 10.1.2.2
+R1#undebug all
+*May 15 14:12:51.172: OSPF-4 HELLO Se0/1/1: Rcv hello from 3.3.3.4 area 0 10.1.3.130
+R1#undebug all
+All possible debugging has been turned off
+R1#
+R1#
+R1#
+*May 15 14:12:52.400: OSPF-4 HELLO Se0/1/0: Rcv hello from 3.3.3.4 area 0 10.1.3.3
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#write memory
+Building configuration...
+[OK]
+R1#
+R1#
+*May 15 14:13:10.505: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R1#

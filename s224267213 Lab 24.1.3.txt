@@ -1,0 +1,908 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2026.05.15 14:23:32 =~=~=~=~=~=~=~=~=~=~=~=
+
+R1#
+R1#
+R1#hostname R1
+    ^
+% Invalid input detected at '^' marker.
+
+R1#no ip domain lookup
+          ^
+% Invalid input detected at '^' marker.
+
+R1#ipv6 unicast-routing
+     ^
+% Invalid input detected at '^' marker.
+
+R1#banner motd # R1, Implement SNMP and Syslog #
+    ^
+% Invalid input detected at '^' marker.
+
+R1#line con 0
+     ^
+% Invalid input detected at '^' marker.
+
+R1# exec-timeout 0 0
+      ^
+% Invalid input detected at '^' marker.
+
+R1# logging synchronous
+            ^
+% Invalid input detected at '^' marker.
+
+R1# exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+ R1, Using Ping, Traceroute, and Debug 
+R1>
+R1>
+R1>
+R1>
+R1>en
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#hostname R1
+R1(config)#no ip domain lookup
+R1(config)#ipv6 unicast-routing
+R1(config)#banner motd # R1, Implement SNMP and Syslog #
+R1(config)#line con 0
+R1(config-line)# exec-timeout 0 0
+R1(config-line)# logging synchronous
+R1(config-line)# exit
+R1(config)#line vty 0 4
+R1(config-line)# privilege level 15
+R1(config-line)# exec-timeout 0 0
+R1(config-line)# password cisco123
+R1(config-line)# login
+R1(config-line)# exit
+R1(config)#interface g0/0/1
+R1(config-if)# ip address 192.168.1.1 255.255.255.0
+% 192.168.1.0 overlaps with Loopback0
+R1(config-if)# ipv6 address fe80::1:1 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:1000::1/64
+%GigabitEthernet0/0/1: Error: 2001:DB8:ACAD:1000::1/64 is in use on Loopback0
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)#ntp master 3
+R1(config)#end
+R1#
+*May 15 14:24:12.682: %SYS-5-CONFIG_I: Configured from console by console
+R1#
+May 15 14:24:12.683: %PKI-6-AUTHORITATIVE_CLOCK: The system clock has been set.
+R1#
+R1#
+R1#
+R1#conf t' 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#colck timex zone utc 0 0
+             ^
+% Invalid input detected at '^' marker.
+
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#colck timezone utc 0 0ck timezone utc 0 0 ck timezone utc 0 0 lck timezone utc 0 0ock timezone utc 0 0
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: no
+
+  The enable secret is a password used to protect
+  access to privileged EXEC and configuration modes.
+  This password, after entered, becomes encrypted in
+  the configuration.
+  -------------------------------------------------
+  secret should be of minimum 10 characters and maximum 32 characters with
+  at least 1 upper case, 1 lower case, 1 digit and
+  should not contain [cisco]
+  -------------------------------------------------
+  Enter enable secret: ************************
+%Password strength validation failed
+
+
+  The enable secret is a password used to protect
+  access to privileged EXEC and configuration modes.
+  This password, after entered, becomes encrypted in
+  the configuration.
+  -------------------------------------------------
+  secret should be of minimum 10 characters and maximum 32 characters with
+  at least 1 upper case, 1 lower case, 1 digit and
+  should not contain [cisco]
+  -------------------------------------------------
+  Enter enable secret: **********
+  Confirm enable secret: **********
+
+The following configuration command script was created:
+
+enable secret 9 $9$IMiD8rpPuDiLE.$/8huMn9d40r/q5p2JBUhchUOC78FkwlOdLfM4WXRsik
+!
+end
+
+
+[0] Go to the IOS command prompt without saving this config.
+[1] Return back to the setup without saving this config.
+[2] Save this configuration to nvram and exit.
+
+Enter your selection [2]: 0
+% You can enter the setup, by typing setup at IOS command prompt
+
+
+Press RETURN to get started!
+
+
+*May 15 14:25:39.432: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-3264722378 created succesfully
+*May 15 14:25:39.815: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signed-3264722378 has been generated or imported by crypto-engine
+*May 15 14:25:39.871: %PKI-4-NOCONFIGAUTOSAVE: Configuration was modified.  Issue "write memory" to save new IOS PKI configuration
+*May 15 14:25:39.873: %SYS-5-CONFIG_P: Configured programmatically by process Setup from console as vty0
+Switch>
+*May 15 14:25:41.428: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to administratively down
+*May 15 14:25:47.908: %IOXN_APP-6-PRE_INIT_DAY0_GS_INFO: Day0 Guestshell de-initilization API is being invoked
+
+*May 15 14:25:48.091: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:25:48.193: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:25:48.194: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 15 14:25:48.423: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:25:48.664: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:25:48.693: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:25:48.806: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:25:48.918: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C9300L-24T-4G,SN:FVH2851L49N] identified
+*May 15 14:25:49.238: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0Guestshell destroyed successfully 
+
+*May 15 14:25:49.344: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 1 seconds).
+*May 15 14:25:49.344: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+*May 15 14:25:50.654: %UICFGEXP-6-SERVER_NOTIFIED_STOP: Switch 1 R0/0: psd: Server iox has been notified to stop
+Switch>
+*May 15 14:25:57.397: %IOXN_APP-6-IOX_START_STOP_REQ: Got IOX DOWN COMPLETE event, invoking registered callback(s)
+
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>en
+Switch#
+Switch#
+Switch#
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#hostname D1
+D1(config)#no ip domain lookup
+D1(config)#ipv6 unicast-routing
+D1(config)#banner motd # D1, Implement SNMP and Syslog #
+D1(config)#line con 0
+D1(config-line)# exec-timeout 0 0
+D1(config-line)# logging synchronous
+D1(config-line)# exit
+D1(config)#line vty 0 4
+D1(config-line)# privilege level 15
+D1(config-line)# exec-timeout 0 0
+D1(config-line)# password cisco123
+D1(config-line)# login
+D1(config-line)# exit
+D1(config)#interface vlan 1
+D1(config-if)# ip address 192.168.1.2 255.255.255.0
+D1(config-if)# ipv6 address fe80::d1:1 link-local
+D1(config-if)# ipv6 address 2001:db8:acad:1000::2/64
+D1(config-if)# no shutdown
+D1(config-if)# exit
+D1(config)#ip default-gateway 192.168.1.1
+D1(config)#interface g1/0/23
+D1(config-if)# spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast has been configured on GigabitEthernet1/0/23 but will only
+ have effect when the interface is in a non-trunking mode.
+D1(config-if)# switchport mode access
+D1(config-if)# no shutdown
+D1(config-if)# exit
+D1(config)#interface g1/0/11
+D1(config-if)# spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc... to this
+ interface  when portfast is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+%Portfast has been configured on GigabitEthernet1/0/11 but will only
+ have effect when the interface is in a non-trunking mode.
+D1(config-if)# switchport mode access
+D1(config-if)# no shutdown
+D1(config-if)# exit
+D1(config)#interface range g1/0/5-6
+D1(config-if-range)# switchport mode trunk
+D1(config-if-range)# channel-group 1 mode active
+Creating a port-channel interface Port-channel 1
+
+D1(config-if-range)# no shutdown
+D1(config-if-range)# exit
+D1(config)#interface range g1/0/1-4, g1/0/7-10, g1/0/12-22, g1/0/24, g1/1/1-4
+D1(config-if-range)# shutdown
+D1(config-if-range)# exit
+D1(config)#ntp server 192.168.1.1
+D1(config)#end
+D1#
+*May 15 14:26:35.431: %SYS-5-CONFIG_I: Configured from console by console
+D1#
+*May 15 14:26:36.163: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/5, changed state to down
+*May 15 14:26:36.182: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/6, changed state to down
+*May 15 14:26:37.323: %LINK-5-CHANGED: Interface GigabitEthernet1/0/1, changed state to administratively down
+*May 15 14:26:37.326: %LINK-5-CHANGED: Interface GigabitEthernet1/0/2, changed state to administratively down
+*May 15 14:26:37.329: %LINK-5-CHANGED: Interface GigabitEthernet1/0/3, changed state to administratively down
+*May 15 14:26:37.334: %LINK-5-CHANGED: Interface GigabitEthernet1/0/4, changed state to administratively down
+*May 15 14:26:37.338: %LINK-5-CHANGED: Interface GigabitEthernet1/0/7, changed state to administratively down
+*May 15 14:26:37.341: %LINK-5-CHANGED: Interface GigabitEthernet1/0/8, changed state to administratively down
+*May 15 14:26:37.345: %LINK-5-CHANGED: Interface GigabitEthernet1/0/9, changed state to administratively down
+*May 15 14:26:37.349: %LINK-5-CHANGED: Interface GigabitEthernet1/0/10, changed state to administratively down
+*May 15 14:26:37.353: %LINK-5-CHANGED: Interface GigabitEthernet1/0/12, changed state to administratively down
+*May 15 14:26:37.356: %LINK-5-CHANGED: Interface GigabitEthernet1/0/13, changed state to administratively down
+*May 15 14:26:37.359: %LINK-5-CHANGED: Interface GigabitEthernet1/0/14, changed state to administratively down
+*May 15 14:26:37.362: %LINK-5-CHANGED: Interface GigabitEthernet1/0/15, changed state to administratively down
+*May 15 14:26:37.364: %LINK-5-CHANGED: Interface GigabitEthernet1/0/16, changed state to administratively down
+*May 15 14:26:37.366: %LINK-5-CHANGED: Interface GigabitEthernet1/0/17, changed state to administratively down
+*May 15 14:26:37.368: %LINK-5-CHANGED: Interface GigabitEthernet1/0/18, changed state to administratively down
+*May 15 14:26:37.369: %LINK-5-CHANGED: Interface GigabitEthernet1/0/19, changed state to administratively down
+*May 15 14:26:37.371: %LINK-5-CHANGED: Interface GigabitEthernet1/0/20, changed state to administratively down
+*May 15 14:26:37.375: %LINK-5-CHANGED: Interface GigabitEthernet1/0/21, changed state to administratively down
+D1#
+*May 15 14:26:37.377: %LINK-5-CHANGED: Interface GigabitEthernet1/0/22, changed state to administratively down
+*May 15 14:26:37.380: %LINK-5-CHANGED: Interface GigabitEthernet1/0/24, changed state to administratively down
+*May 15 14:26:37.382: %LINK-5-CHANGED: Interface GigabitEthernet1/1/1, changed state to administratively down
+*May 15 14:26:37.384: %LINK-5-CHANGED: Interface GigabitEthernet1/1/2, changed state to administratively down
+*May 15 14:26:37.386: %LINK-5-CHANGED: Interface GigabitEthernet1/1/3, changed state to administratively down
+*May 15 14:26:37.390: %LINK-5-CHANGED: Interface GigabitEthernet1/1/4, changed state to administratively down
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+*May 15 14:26:46.475: %ETC-5-L3DONTBNDL2: Gi1/0/6 suspended: LACP currently not enabled on the remote port.
+*May 15 14:26:46.944: %ETC-5-L3DONTBNDL2: Gi1/0/5 suspended: LACP currently not enabled on the remote port.
+D1#
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+*May 15 14:27:17.240: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:27:17.240: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*May 15 14:27:17.383: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:27:17.902: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:27:18.044: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+*May 15 14:27:18.226: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:27:18.352: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:27:18.463: %PNP-6-PNP_SUDI_UPDATE: Device SUDI [PID:C9300L-24T-4G,SN:FVH2851L4CG] identified
+*May 15 14:27:20.457: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*May 15 14:27:20.557: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 3 seconds).
+*May 15 14:27:20.557: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#hostname A1
+A1(config)#no ip domain lookup
+A1(config)#ipv6 unicast-routing
+A1(config)#banner motd # A1, Implement SNMP and Syslog #
+A1(config)#line con 0
+A1(config-line)# exec-timeout 0 0
+A1(config-line)# logging synchronous
+A1(config-line)# exit
+A1(config)#line vty 0 4
+A1(config-line)# privilege level 15
+A1(config-line)# exec-timeout 0 0
+A1(config-line)# password cisco123
+A1(config-line)# login
+A1(config-line)# exit
+A1(config)#interface vlan 1
+A1(config-if)# ip address 192.168.1.3 255.255.255.0
+A1(config-if)# ipv6 address fe80::a1:1 link-local
+A1(config-if)# ipv6 address 2001:db8:acad:1000::3/64
+A1(config-if)# no shutdown
+A1(config-if)# exit
+A1(config)#ip default-gateway 192.168.1.1
+A1(config)#interface range f0/1-2
+                           ^
+% Invalid input detected at '^' marker.
+
+A1(config)# switchport mode trunk
+                  ^
+% Invalid input detected at '^' marker.
+
+A1(config)# channel-group 1 mode active
+             ^
+% Invalid input detected at '^' marker.
+
+A1(config)# no shutdown
+% Incomplete command.
+
+A1(config)# exit
+A1#interface range f0/3-24, g0/1-2
+     ^
+% Invalid input detected at '^' marker.
+
+A1# shutdown
+% Bad IP address or host name% Unknown command or computer name, or unable to find computer address
+A1# exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+*May 15 14:27:57.221: %SYS-5-CONFIG_I: Configured from console by console A1, Implement SNMP and Syslog 
+A1>
+A1>
+A1>en
+A1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+A1(config)#hostname A1
+A1(config)#no ip domain lookup
+A1(config)#ipv6 unicast-routing
+A1(config)#banner motd # A1, Implement SNMP and Syslog #
+A1(config)#line con 0
+A1(config-line)# exec-timeout 0 0
+A1(config-line)# logging synchronous
+A1(config-line)# exit
+A1(config)#line vty 0 4
+A1(config-line)# privilege level 15
+A1(config-line)# exec-timeout 0 0
+A1(config-line)# password cisco123
+A1(config-line)# login
+A1(config-line)# exit
+A1(config)#interface vlan 1
+A1(config-if)# ip address 192.168.1.3 255.255.255.0
+A1(config-if)# ipv6 address fe80::a1:1 link-local
+A1(config-if)# ipv6 address 2001:db8:acad:1000::3/64
+A1(config-if)# no shutdown
+A1(config-if)# exit
+A1(config)#ip default-gateway 192.168.1.1
+A1(config)#interface range g0/0/1-2
+                           ^
+% Invalid input detected at '^' marker.
+
+A1(config)# switchport mode trunk
+                  ^
+% Invalid input detected at '^' marker.
+
+A1(config)# channel-group 1 mode active
+             ^
+% Invalid input detected at '^' marker.
+
+A1(config)# no shutdown
+% Incomplete command.
+
+A1(config)# exit
+A1#interface range g0/0/3-24, g0/0/1-2
+     ^
+% Invalid input detected at '^' marker.
+
+A1# shutdown
+% Bad IP address or host name% Unknown command or computer name, or unable to find computer address
+A1# exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+*May 15 14:29:47.431: %SYS-5-CONFIG_I: Configured from console by console A1, Implement SNMP and Syslog 
+A1>
+A1>
+A1>
+A1>
+A1>
+A1>
+A1>en 
+A1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+A1(config)#
+A1(config)#
+A1(config)#interface range g1/0/1-2
+A1(config-if-range)# switchport mode trunk
+A1(config-if-range)# channel-group 1 mode active
+Creating a port-channel interface Port-channel 1
+
+A1(config-if-range)# no shutdown
+A1(config-if-range)# exit
+A1(config)#interface range g1/0/3-24, g1/0/1-2
+A1(config-if-range)# shutdown
+A1(config-if-range)# exit
+A1(config)#ntp server 192.168.1.1
+A1(config)#end
+A1#
+*May 15 14:31:13.320: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/1, changed state to down
+*May 15 14:31:13.350: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/2, changed state to down
+*May 15 14:31:14.397: %LINK-5-CHANGED: Interface GigabitEthernet1/0/3, changed state to administratively down
+*May 15 14:31:14.403: %LINK-5-CHANGED: Interface GigabitEthernet1/0/4, changed state to administratively down
+*May 15 14:31:14.405: %LINK-5-CHANGED: Interface GigabitEthernet1/0/5, changed state to administratively down
+*May 15 14:31:14.408: %LINK-5-CHANGED: Interface GigabitEthernet1/0/6, changed state to administratively down
+*May 15 14:31:14.413: %LINK-5-CHANGED: Interface GigabitEthernet1/0/7, changed state to administratively down
+*May 15 14:31:14.415: %LINK-5-CHANGED: Interface GigabitEthernet1/0/8, changed state to administratively down
+*May 15 14:31:14.418: %LINK-5-CHANGED: Interface GigabitEthernet1/0/9, changed state to administratively down
+*May 15 14:31:14.422: %LINK-5-CHANGED: Interface GigabitEthernet1/0/10, changed state to administratively down
+*May 15 14:31:14.425: %LINK-5-CHANGED: Interface GigabitEthernet1/0/11, changed state to administratively down
+*May 15 14:31:14.428: %LINK-5-CHANGED: Interface GigabitEthernet1/0/12, changed state to administratively down
+*May 15 14:31:14.431: %LINK-5-CHANGED: Interface GigabitEthernet1/0/13, changed state to administratively down
+*May 15 14:31:14.434: %LINK-5-CHANGED: Interface GigabitEthernet1/0/14, changed state to administratively down
+*May 15 14:31:14.437: %LINK-5-CHANGED: Interface GigabitEthernet1/0/15, changed state to administratively down
+*May 15 14:31:14.441: %LINK-5-CHANGED: Interface GigabitEthernet1/0/16, changed state to administratively down
+*May 15 14:31:14.445: %LINK-5-CHANGED: Interface GigabitEthernet1/0/17, changed state to administratively down
+*May 15 14:31:14.448: %LINK-5-CHANGED: Interface GigabitEthernet1/0/18, changed state to administratively down
+*May 15 14:31:14.451: %LINK-5-CHANGED: Interface GigabitEthernet1/0/19, changed state to administratively down
+*May 15 14:31:14.454: %LINK-5-CHANGED: Interface GigabitEthernet1/0/20, changed state to administratively down
+*May 15 14:31:14.456: %LINK-5-CHANGED: Interface GigabitEthernet1/0/21, changed state to administratively down
+*May 15 14:31:14.460: %LINK-5-CHANGED: Interface GigabitEthernet1/0/22, changed state to administratively down
+*May 15 14:31:14.463: %LINK-5-CHANGED: Interface GigabitEthernet1/0/23, changed state to administratively down
+*May 15 14:31:14.467: %LINK-5-CHANGED: Interface GigabitEthernet1/0/24, changed state to administratively down
+*May 15 14:31:14.471: %LINK-5-CHANGED: Interface GigabitEthernet1/0/1, changed state to administratively down
+*May 15 14:31:14.476: %LINK-5-CHANGED: Interface GigabitEthernet1/0/2, changed state to administratively down
+A1#
+*May 15 14:31:14.624: %SYS-5-CONFIG_I: Configured from console by console
+A1#
+A1#
+A1#
+A1#
+A1#ping 192.168.1.50
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.50, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+A1#ping 192.168.1.50
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.50, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+A1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#conf ten    conf t      ping 192.168.1.4 50
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.50, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+D1#ping 192.168.1.50
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.50, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+D1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+D1(config)#ip access-list standard NMS-SERVER
+D1(config-std-nacl)# permit 192.168.1.50
+D1(config-std-nacl)# exit
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#snmp-server location D1 Rack 1
+D1(config)#snmp-server contact Student 555-1213
+D1(config)#snmp-server chassis-id Cisco Device D1
+D1(config)#snmp ifmib ifindex persist
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#snmp-server community CCNPv8 ro NMS-SERVER
+D1(config)#snmp-server community CCNPv8 rw NMS-SERVER
+D1(config)#snmp-server host 192.168.1.50 version 2c CCNPv8
+D1(config)#snmp-server enable traps
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#
+D1(config)#logging buffered 16384
+D1(config)#logging trap informational
+D1(config)#logging host 192.168.1.50
+D1(config)#exit
+D1#write memory
+*May 15 14:53:00.671: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 0 CLI Request Triggered
+*May 15 14:53:00.672: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 514 started - CLI initiated
+D1#write memory
+Building configuration...
+
+*May 15 14:53:00.679: %SYS-5-CONFIG_I: Configured from console by console[OK]
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+D1#
+A1#
+A1#
+A1#
+A1#
+A1#conf t' 
+Enter configuration commands, one per line.  End with CNTL/Z.
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#ip access-list standard NMS-SERVER
+A1(config-std-nacl)# permit 192.168.1.50
+A1(config-std-nacl)# exit
+A1(config)#snmp-server location A1 Rack 1
+A1(config)#snmp-server contact Student 555-1213
+A1(config)#snmp-server chassis-id Cisco Device A1
+A1(config)#snmp ifmib ifindex persist
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#snmp-server community CCNPv8 ro NMS-SERVER
+A1(config)#snmp-server community CCNPv8 rw NMS-SERVER
+A1(config)#snmp-server host 192.168.1.50 version 2c CCNPv8
+A1(config)#snmp-server enable traps
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#
+A1(config)#logging buffered 16384
+A1(config)#logging trap informational
+A1(config)#logging host 192.168.1.50
+A1(config)#exit
+A1#write memory
+Building configuration...
+
+*May 15 14:54:06.733: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 0 CLI Request Triggered
+*May 15 14:54:06.733: %SYS-5-CONFIG_I: Configured from console by console[OK]
+*May 15 14:54:06.733: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 514 started - CLI initiated
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+A1#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#ip access-list standard NMS-SERVER
+R1(config-std-nacl)# permit 192.168.1.50
+R1(config-std-nacl)# exit
+R1(config)#
+R1(config)#
+R1(config)#snmp-server location R1 Rack 1
+R1(config)#snmp-server contact Student 555-1213
+R1(config)#snmp-server chassis-id Cisco Device R1
+R1(config)#snmp ifmib ifindex persist
+R1(config)#snmp-server community CCNPv8 ro NMS-SERVER
+R1(config)#snmp-server community CCNPv8 rw NMS-SERVER
+R1(config)#snmp-server host 192.168.1.50 version 2c CCNPv8
+R1(config)#snmp-server enable traps
+May 15 14:55:42.319: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by PDU DISPATCHER for use of MD5
+May 15 14:55:42.319: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by PDU DISPATCHER for use of DES
+May 15 14:55:42.319: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by PDU DISPATCHER for use of 3DES
+May 15 14:55:42.319: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by SNMP ENGINE for use of MD5
+May 15 14:55:42.319: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by SNMP ENGINE for use of DES
+May 15 14:55:42.319: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by SNMP ENGINE for use of 3DES
+May 15 14:55:42.342: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by SNMP Traps for use of MD5
+May 15 14:55:42.342: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by SNMP Traps for use of DES
+R1(config)#snmp-server enable traps
+May 15 14:55:42.342: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_EXCEPTION_ADDED: Cisco PSB security compliance exception has been added by SNMP Traps for use of 3DES
+R1(config)#snmp-server enable traps
+R1(config)#logging buffered 16384
+R1(config)#logging trap informational
+R1(config)#logging host 192.168.1.50
+R1(config)#exit
+R1#write memory
+May 15 14:55:53.155: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 0 CLI Request Triggered
+May 15 14:55:53.156: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 514 started - CLI initiated
+R1#write memory
+Building configuration...
+
+May 15 14:55:53.176: %SYS-5-CONFIG_I: Configured from console by console[OK]
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+May 15 14:55:56.013: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+R1#
+R1#debug snmp pACKETS
+SNMP packet debugging is on
+R1#
+R1#
+R1#
+R1#
+R1#
+May 15 14:56:33.188: SNMP: Queuing packet to 192.168.1.50
+May 15 14:56:33.188: SNMP: V2 Trap, reqid 1, errstat 0, erridx 0 
+ sysUpTime.0 = 458325 
+ snmpTrapOID.0 = ccmCLIRunningConfigChanged 
+ ccmHistoryRunningLastChanged.0 = 265484 
+ ccmHistoryEventTerminalType.8 = 3 
+ ccmHistoryEventTerminalUser.8 = 
+May 15 14:56:33.191: SNMP: Queuing packet to 192.168.1.50
+May 15 14:56:33.191: SNMP: V2 Trap, reqid 2, errstat 0, erridx 0 
+ sysUpTime.0 = 458327 
+ snmpTrapOID.0 = ciscoConfigManEvent 
+ ccmHistoryEventCommandSource.9 = 1 
+ ccmHistoryEventConfigSource.9 = 3 
+ ccmHistoryEventConfigDestination.9 = 4 
+ ccmHistoryEventTerminalUser.9 = 
+R1#
+May 15 14:56:33.438: SNMP: Packet sent via UDP to 192.168.1.50
+May 15 14:56:33.689: SNMP: Packet sent via UDP to 192.168.1.50
+R1#SH LOGGING
+Syslog logging: enabled (0 messages dropped, 3 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level debugging, 437 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 0 messages logged, xml disabled,
+                     filtering disabled
+    Buffer logging:  level debugging, 24 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (4096 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+ --More--             Trap logging: level informational, 144 message lines logged
+        Logging to 192.168.1.50  (udp port 514, audit disabled,
+              link up),
+              4 message lines logged, 
+              0 message lines rate-limited, 
+              0 message lines dropped-by-MD, 
+              xml disabled, sequence number disabled
+              filtering disabled
+        Logging Source-Interface:       VRF Name:
+    TLS Profiles: 
+
+Log Buffer (16384 bytes):
+
+May 15 14:55:53.109: %SYS-5-LOG_CONFIG_CHANGE: Buffer logging: level debugging, xml disabled, filtering disabled, size (16384)
+May 15 14:55:53.155: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 0 CLI Request Triggered
+May 15 14:55:53.156: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.50 port 514 started - CLI initiated
+May 15 14:55:53.176: %SYS-5-CONFIG_I: Configured from console by console
+May 15 14:55:56.013: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+May 15 14:56:33.188: SNMP: Queuing packet to 192.168.1.50
+ --More--         May 15 14:56:33.188: SNMP: V2 Trap, reqid 1, errstat 0, erridx 0 
+ sysUpTime.0 = 458325 
+ snmpTrapOID.0 = ccmCLIRunningConfigChanged 
+ ccmHistoryRunningLastChanged.0 = 265484 
+ ccmHistoryEventTerminalType.8 = 3 
+ ccmHistoryEventTerminalUser.8 = 
+May 15 14:56:33.191: SNMP: Queuing packet to 192.168.1.50
+May 15 14:56:33.191: SNMP: V2 Trap, reqid 2, errstat 0, erridx 0 
+ sysUpTime.0 = 458327 
+ snmpTrapOID.0 = ciscoConfigManEvent 
+ ccmHistoryEventCommandSource.9 = 1 
+ ccmHistoryEventConfigSource.9 = 3 
+ ccmHistoryEventConfigDestination.9 = 4 
+ ccmHistoryEventTerminalUser.9 = 
+May 15 14:56:33.438: SNMP: Packet sent via UDP to 192.168.1.50
+May 15 14:56:33.689: SNMP: Packet sent via UDP to 192.168.1.50
+R1# show snmp mib ifmib ifindex
+Loopback1: Ifindex = 9
+GigabitEthernet0/0/0: Ifindex = 1
+GigabitEthernet0/0/2: Ifindex = 3
+Serial0/1/0: Ifindex = 5
+Loopback0: Ifindex = 8
+Null0: Ifindex = 7
+GigabitEthernet0/0/1: Ifindex = 2
+GigabitEthernet0/0/3: Ifindex = 4
+Serial0/1/1: Ifindex = 6
+R1#
+R1#
+R1#
+R1#
+R1#  
+R1#
+R1#
+R1#undebug all
+All possible debugging has been turned off
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
+R1#
